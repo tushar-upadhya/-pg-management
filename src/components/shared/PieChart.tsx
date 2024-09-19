@@ -1,16 +1,14 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
 import * as React from "react"
-import { Label, Pie, PieChart } from "recharts"
+import { Label, Pie, PieChart as RechartsPieChart } from "recharts"
 
 import {
  Card,
  CardContent,
- CardDescription,
- CardFooter,
+ // CardFooter,
  CardHeader,
- CardTitle,
+ CardTitle
 } from "../../components/ui/card"
 import {
  ChartConfig,
@@ -21,11 +19,13 @@ import {
 
 export const description = "A donut chart with text"
 
-const chartData = [
- { browser: "chrome", visitors: 275, fill: "#00FFF5" },
- { browser: "safari", visitors: 200, fill: "#FFE605" },
- { browser: "firefox", visitors: 287, fill: "#FF05C8" },
-]
+interface PieChartProps {
+ data: { browser: string; visitors: number; fill: string }[];
+ title?: string;
+ icon?: React.ReactNode;
+ className?: string
+ // footerData?: { percentage: number; description: string };
+}
 
 const chartConfig = {
  visitors: {
@@ -53,29 +53,35 @@ const chartConfig = {
  },
 } satisfies ChartConfig
 
-export function PieCHART() {
+export function PieChart({ data, title, icon, className }: PieChartProps) {
  const totalVisitors = React.useMemo(() => {
-  return chartData.reduce((acc, curr) => acc + curr.visitors, 0)
- }, [])
+  return data.reduce((acc, curr) => acc + curr.visitors, 0)
+ }, [data])
 
  return (
-  <Card className="flex flex-col bg-[#111111] text-white  border-none">
+  <Card className={`{flex flex-col bg-inherit text-white border-none ${className}`}>
    <CardHeader className="items-center pb-0">
-    <CardTitle>Pie Chart - Donut with Text</CardTitle>
-    <CardDescription>January - June 2024</CardDescription>
+    <CardTitle className="text-lg md:text-xl lg:text-2xl">{title}
+     <span className="inline-block ml-3.5 cursor-pointer">
+      {icon && <span className="text-muted-foreground">{icon}</span>}
+     </span>
+    </CardTitle>
+    {/* <CardDescription className="text-sm md:text-base lg:text-lg">
+     January - June 2024
+    </CardDescription> */}
    </CardHeader>
    <CardContent className="flex-1 pb-0">
     <ChartContainer
      config={chartConfig}
-     className="mx-auto aspect-square max-h-[250px]"
+     className="mx-auto aspect-square max-h-[200px] md:max-h-[250px] lg:max-h-[300px] w-full"
     >
-     <PieChart>
+     <RechartsPieChart>
       <ChartTooltip
        cursor={false}
        content={<ChartTooltipContent hideLabel />}
       />
       <Pie
-       data={chartData}
+       data={data}
        dataKey="visitors"
        nameKey="browser"
        innerRadius={60}
@@ -94,16 +100,16 @@ export function PieCHART() {
             <tspan
              x={viewBox.cx}
              y={viewBox.cy}
-             className="fill-foreground text-3xl font-bold"
+             className="fill-foreground text-2xl md:text-3xl lg:text-4xl font-bold"
             >
              {totalVisitors.toLocaleString()}
             </tspan>
             <tspan
              x={viewBox.cx}
              y={(viewBox.cy || 0) + 24}
-             className="fill-muted-foreground"
+             className="fill-muted-foreground text-xs md:text-sm lg:text-base"
             >
-             Visitors
+             {/* Visitors */}
             </tspan>
            </text>
           )
@@ -111,17 +117,17 @@ export function PieCHART() {
         }}
        />
       </Pie>
-     </PieChart>
+     </RechartsPieChart>
     </ChartContainer>
    </CardContent>
-   <CardFooter className="flex-col gap-2 text-sm">
+   {/* <CardFooter className="flex-col gap-2 text-sm">
     <div className="flex items-center gap-2 font-medium leading-none">
-     Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+     Trending up by {footerData.percentage}% this month <TrendingUp className="h-4 w-4" />
     </div>
     <div className="leading-none text-muted-foreground">
-     Showing total visitors for the last 6 months
+     {footerData.description}
     </div>
-   </CardFooter>
+   </CardFooter> */}
   </Card>
  )
 }

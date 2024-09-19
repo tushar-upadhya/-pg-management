@@ -1,6 +1,6 @@
 const AccountsPage = () => {
  return (
-  <div>AccountsPage</div>
+  <div className="text-red-300">AccountsPage</div>
  )
 }
 export default AccountsPage

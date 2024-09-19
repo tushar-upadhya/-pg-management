@@ -6,4 +6,8 @@
   :root {
     --radius: 0.5rem
   }
+  html, body, #root {
+    height: 100vh;
+    background: black;
+  }  
 }

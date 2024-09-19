@@ -6,9 +6,9 @@ const RoomsPage: React.FC = () => {
   <div className='text-red-400'>
    <h1>Rooms Overview</h1>
    <nav className="flex gap-4">
-    <Link to="hotels">Hotels</Link>
-    <Link to="assigned">Assigned</Link>
-    <Link to="furniture">Furniture</Link>
+    <Link to="/rooms/hotels">Hotels</Link>
+    <Link to="/rooms/assigned">Assigned</Link>
+    <Link to="/rooms/furniture">Furniture</Link>
    </nav>
   </div>
  );

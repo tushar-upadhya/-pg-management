@@ -1,6 +1,6 @@
 const MaintenancePage = () => {
  return (
-  <div>MaintenancePage</div>
+  <div className="text-red-300">MaintenancePage</div>
  )
 }
 export default MaintenancePage

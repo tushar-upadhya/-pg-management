@@ -1,48 +1,57 @@
 import { Menu, X } from 'lucide-react';
-import React, { useState } from 'react';
-import { Button } from '../ui/button';
+import React, { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
 import Navigation from './Navigation';
 import UserIcons from './UserIcons';
 
 const Header: React.FC = () => {
  const [isMenuOpen, setIsMenuOpen] = useState(false);
+ const menuRef = useRef<HTMLDivElement>(null);
 
  const handleToggleMenu = () => {
   setIsMenuOpen(!isMenuOpen);
  };
 
+ const handleClickOutside = (event: MouseEvent) => {
+  if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+   setIsMenuOpen(false);
+  }
+ };
+
+ useEffect(() => {
+  document.addEventListener('mousedown', handleClickOutside);
+  return () => {
+   document.removeEventListener('mousedown', handleClickOutside);
+  };
+ }, []);
+
  return (
   <header className="flex justify-between items-center px-4 md:px-14 w-full bg-neutral-800 py-4 relative">
-   {/* Logo section */}
    <div className="flex-shrink-0">
     <Logo />
    </div>
 
-   {/* Hamburger Menu for small screens */}
    <div className="block md:hidden">
-    <Button
+    <button
      className="text-white"
      onClick={handleToggleMenu}
      aria-label="Toggle navigation"
     >
      {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
-    </Button>
+    </button>
    </div>
 
-   {/* Regular Navigation for larger screens */}
-   <div className="hidden md:flex flex-grow justify-center">
+   {/* Adjust the navigation for screens between 768px and 1024px */}
+   <nav className="hidden md:flex flex-grow justify-between sm:flex sm:justify-between">
     <Navigation />
-   </div>
+   </nav>
 
-   {/* User Icons */}
    <div className="flex-shrink-0 hidden md:flex">
     <UserIcons />
    </div>
 
-   {/* Mobile Navigation */}
    {isMenuOpen && (
-    <div className="md:hidden flex flex-col items-center bg-neutral-800 w-full p-5 absolute top-full left-0 z-50">
+    <div ref={menuRef} className="md:hidden flex flex-col items-center gap-8 bg-neutral-800 w-full p-5 absolute top-full left-0 z-50">
      <Navigation />
      <UserIcons />
     </div>

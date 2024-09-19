@@ -6,11 +6,12 @@ import { Outlet } from 'react-router-dom';
 
 const RoomLayout: React.FC = () => {
  const roomMenuItems = [
-  { icon: <ChartNoAxesColumn />, label: 'Hotels' },
-  { icon: <UserRound />, label: 'Assigned' },
-  { icon: <Package />, label: 'Furniture' },
-  { icon: <Utensils />, label: 'Meal' },
+  { icon: <ChartNoAxesColumn />, label: 'Hotels', path: 'hotels' },
+  { icon: <UserRound />, label: 'Assigned', path: 'assigned' },
+  { icon: <Package />, label: 'Furniture', path: 'furniture' },
+  { icon: <Utensils />, label: 'Meal', path: 'meal' },
  ];
+
  return (
   <div className="flex h-screen flex-col bg-black md:flex-col">
    <Header />

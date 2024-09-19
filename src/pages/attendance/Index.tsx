@@ -1,6 +1,6 @@
 const AttendancePage = () => {
  return (
-  <div>AttendancePage</div>
+  <div className="text-red-300">AttendancePage</div>
  )
 }
 export default AttendancePage
