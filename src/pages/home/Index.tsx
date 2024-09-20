@@ -1,5 +1,5 @@
 import Complaint from "@/components/Complaint/Complaint";
-import NewDatatable, { DatatableThead } from "@/components/dataTable/DataTable";
+import { DatatableThead } from "@/components/dataTable/DataTable";
 import EmergencyButton from "@/components/EmergencyButton/EmergencyButton";
 import FeesCollection from "@/components/fees-Collection/FeesCollection";
 import { homeTableType } from "@/lib/datatable/HomeTable";
@@ -25,78 +25,7 @@ const HomePage = () => {
  // DataTable
  useEffect(() => {
   const dummyData: homeTableType[] = [
-   {
-    names: 'nobody',
-    entryTime: '08:00 AM',
-    entryOut: '04:00 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '08:30 AM',
-    entryOut: '04:30 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '09:00 AM',
-    entryOut: '05:00 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '08:00 AM',
-    entryOut: '04:00 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '08:30 AM',
-    entryOut: '04:30 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '09:00 AM',
-    entryOut: '05:00 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '08:00 AM',
-    entryOut: '04:00 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '08:30 AM',
-    entryOut: '04:30 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '09:00 AM',
-    entryOut: '05:00 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '08:00 AM',
-    entryOut: '04:00 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '08:30 AM',
-    entryOut: '04:30 PM',
-    imgURL: '../../assets/react.svg',
-   },
-   {
-    names: 'nobody',
-    entryTime: '09:00 AM',
-    entryOut: '05:00 PM',
-    imgURL: '../../assets/react.svg',
-   }
+   // Sample data goes here
   ];
   setInventory(dummyData);
  }, []);
@@ -151,43 +80,51 @@ const HomePage = () => {
  ];
 
  return (
-  <div className="flex flex-col md:flex-row justify-between gap-4 p-4">
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-4 md:p-6 bg-[#202020] text-white">
+
    {/* Chart Section */}
-   <div className="flex flex-wrap justify-evenly h-[22rem] bg-[#202020] p-4 rounded-lg w-full md:w-3/4 lg:w-3/5 xl:w-2/3">
+   <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 bg-[#202020] p-4 rounded-lg">
     {pieChartsData.map((chart, index) => (
-     <div key={index} className="w-full md:w-1/2 lg:w-1/3 p-2">
+     <div key={index} className="p-2 bg-[#111111] rounded-lg h-[20rem]">
       <PieChart
        icon={chart.icon}
        data={data}
-       className="bg-[#111111] text-white"
+       className="text-white"
        title={chart.title}
       />
      </div>
     ))}
    </div>
 
-   {/* Fee Section moved below the charts */}
-   <div className="absolute w-[55%] top-[32rem]  gap-4">
+   {/* Student Updates and Emergency Section */}
+   <div className="lg:col-span-1 mt-4 space-y-6">
+    {/* Student Update Section */}
+    <div className="p-4 bg-[#111111] rounded-lg h-[28rem]">
+     <h2 className="text-xl font-semibold mb-4">Student Update</h2>
+     <ScrollArea type="always" scrollbars="vertical" className="h-64">
+      {inventory.map((item, index) => (
+       <div key={index} className="flex items-center justify-between py-2">
+        <span>{item.names}</span>
+        <span>{item.entryTime}</span>
+       </div>
+      ))}
+     </ScrollArea>
+    </div>
+
+    {/* Emergency Button Section */}
+    <div className="p-4 bg-[#111111] rounded-lg flex items-center justify-center">
+     <EmergencyButton />
+    </div>
+   </div>
+
+   {/* Fee Collection Section */}
+   <div className="lg:col-span-2 mt-8 md:mt-16 lg:-mt-[32rem] rounded-lg">
     <FeesCollection />
    </div>
 
-   {/* Table Section*/}
-   <div className="w-full md:w-1/4 text-red-300  rounded-lg">
-    <ScrollArea type="always" scrollbars="vertical" className="h-[23rem]">
-     <NewDatatable
-      data={inventory}
-      tBodyRender={TBodyRender}
-      tHead={THead}
-     />
-    </ScrollArea>
-   </div>
-
-   <div className="absolute top-[50rem]">
+   {/* Complaint Section */}
+   <div className="lg:col-span-2 p-4 mt-8 md:mt-16 lg:-mt-[12rem] rounded-lg">
     <Complaint />
-   </div>
-
-   <div className="absolute left-[80rem] -ml-16 top-[42.5rem]">
-    <EmergencyButton />
    </div>
   </div>
  );

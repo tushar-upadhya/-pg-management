@@ -31,7 +31,6 @@ const FeesCollection: React.FC = () => {
   loadData();
  }, []);
 
- // Dummy data for the Pie Chart
  const pieChartsData = [
   {
    title: "Fees Collection",
@@ -43,22 +42,21 @@ const FeesCollection: React.FC = () => {
  ];
 
  return (
-  <div className="flex bg-[#202020] p-4 rounded-lg w-full max-w-[900px]">
-   {/* Left side: Pie chart */}
-   <div className="w-1/3 flex items-center justify-center">
+  <div className="flex flex-col md:flex-row bg-[#202020] p-4 rounded-lg w-full max-w-[900px] space-y-6 md:space-y-0 md:space-x-6">
+   {/* Left side */}
+   <div className="w-full md:w-1/3 flex items-center justify-center">
     {pieChartsData.map((chart, index) => (
      <div key={index} className="relative">
       <PieChart
        data={data}
-       // className="bg-black"
        title={chart.title}
       />
      </div>
     ))}
    </div>
 
-   {/* Right side: Dynamic Fee collection stats */}
-   <div className="w-2/3 grid grid-cols-2 gap-4">
+   {/* Right side */}
+   <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4">
     {/* Expected */}
     <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
      <div>

@@ -1,13 +1,10 @@
-import { ExternalLink } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
-// Dummy initial data (you can replace with actual API or state data)
 const chartData = [
- { browser: "Resolved", visitors: 96, fill: "#00FFF5" },  // Resolved complaints
- { browser: "Open", visitors: 62, fill: "#FFE605" },     // Open complaints
+ { browser: "Resolved", visitors: 96, fill: "#00FFF5" },
+ { browser: "Open", visitors: 62, fill: "#FFE605" },
 ];
 
-// FeeData for dynamic content
 const initialComplaintsData = {
  total: 158,
  resolved: 96,
@@ -35,48 +32,55 @@ const Complaint: React.FC = () => {
  }, []);
 
  return (
-  <div className="flex bg-[#202020] p-4 justify-between rounded-lg w-[120%]">
-   <div className="w-1/4 flex items-center justify-center">
+  <div className="flex bg-[#202020] p-4 justify-between rounded-lg w-full flex-col md:flex-row">
+   {/* Left: Color Block */}
+   <div className="w-full md:w-1/4 flex items-center justify-center mb-4 md:mb-0">
     <div className="relative">
-     <div className="bg-[#00FFF5] h-20 w-56 rounded-lg" />
+     <div className="h-20 w-full md:w-32 rounded-lg overflow-hidden flex">
+      <div className="w-1/2 h-full bg-[#00FFF5]"></div>
+      <div className="w-1/2 h-full bg-[#FFE605]"></div>
+     </div>
     </div>
    </div>
 
    {/* Right: Complaint Stats */}
-   <div className="w-full max-w-4xl mx-auto grid grid-cols-3 gap-4 px-8 py-12">
-    <div className="bg-gray-800 p-3 rounded-md flex flex-col items-start justify-center relative">
-     <h4 className="text-white text-sm text-nowrap">
+   <div className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-4">
+    {/* Total Complaints */}
+    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
+     <h4 className="text-white text-sm mb-2">
       Total Complaints
-      <span className="absolute top-2 right-8">
-       <ExternalLink />
-      </span>
      </h4>
-     <p className="text-lg font-semibold text-white">{complaintsData.total}</p>
+     <p className="text-xl font-semibold text-white">
+      {complaintsData.total}
+     </p>
     </div>
 
-    <div className="bg-gray-800 p-3 rounded-md flex flex-col relative items-start justify-center">
-     <h4 className="text-white text-sm">Resolved
-      <span className="absolute top-2 right-20">
-       <ExternalLink />
-      </span>
+    {/* Resolved Complaints */}
+    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
+     <h4 className="text-white text-sm mb-2">
+      Resolved
      </h4>
-     <p className="text-lg font-semibold" style={{ color: complaintsData.colors.resolved }}>
+     <p
+      className="text-xl font-semibold"
+      style={{ color: complaintsData.colors.resolved }}
+     >
       {complaintsData.resolved}
      </p>
     </div>
 
-    <div className="bg-gray-800 p-3 rounded-md flex flex-col items-start relative justify-center">
-     <h4 className="text-white text-sm">Open
-      <span className="absolute top-2 right-24">
-       <ExternalLink />
-      </span>
+    {/* Open Complaints */}
+    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
+     <h4 className="text-white text-sm mb-2">
+      Open
      </h4>
-     <p className="text-lg font-semibold" style={{ color: complaintsData.colors.open }}>
+     <p
+      className="text-xl font-semibold"
+      style={{ color: complaintsData.colors.open }}
+     >
       {complaintsData.open}
      </p>
     </div>
    </div>
-
   </div>
  );
 };

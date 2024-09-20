@@ -26,12 +26,13 @@ const Header: React.FC = () => {
  }, []);
 
  return (
-  <header className="flex justify-between items-center px-4 md:px-14 w-full bg-neutral-800 py-4 relative">
+  <header className="flex justify-between items-center px-4 md:px-8 lg:px-20 w-full bg-neutral-800 py-4 relative">
+   {/* Logo */}
    <div className="flex-shrink-0">
     <Logo />
    </div>
 
-   <div className="block md:hidden">
+   <div className="block lg:hidden">
     <button
      className="text-white"
      onClick={handleToggleMenu}
@@ -41,17 +42,21 @@ const Header: React.FC = () => {
     </button>
    </div>
 
-   {/* Adjust the navigation for screens between 768px and 1024px */}
-   <nav className="hidden md:flex flex-grow justify-between sm:flex sm:justify-between">
+   <nav className="hidden lg:flex flex-grow justify-center items-center space-x-4">
     <Navigation />
    </nav>
 
-   <div className="flex-shrink-0 hidden md:flex">
+   {/*  tablets and larger screens */}
+   <div className="hidden lg:flex flex-shrink-0">
     <UserIcons />
    </div>
 
+   {/* Mobile and Tablet menu */}
    {isMenuOpen && (
-    <div ref={menuRef} className="md:hidden flex flex-col items-center gap-8 bg-neutral-800 w-full p-5 absolute top-full left-0 z-50">
+    <div
+     ref={menuRef}
+     className="lg:hidden flex flex-col items-center gap-4 bg-neutral-800 w-full p-2 absolute top-full left-0 z-50 transition-transform duration-300 ease-in-out"
+    >
      <Navigation />
      <UserIcons />
     </div>
