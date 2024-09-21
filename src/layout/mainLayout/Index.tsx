@@ -14,7 +14,7 @@ const MainLayout: React.FC = () => {
  ];
 
  return (
-  <div className="flex flex-col">
+  <div className="flex flex-col bg-black">
    <Header />
    <div className="flex flex-1 p-4 md:flex-row md:mt-0">
     <Sidebar className=" mt-4" menuItems={mainMenuItems} />

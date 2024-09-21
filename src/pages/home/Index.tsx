@@ -80,16 +80,16 @@ const HomePage = () => {
  ];
 
  return (
-  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-4 md:p-6 bg-[#202020] text-white">
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-4 md:p-6 text-white">
 
    {/* Chart Section */}
-   <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 bg-[#202020] p-4 rounded-lg">
+   <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 p-2 lg:grid-cols-3 gap-4 rounded-lg">
     {pieChartsData.map((chart, index) => (
-     <div key={index} className="p-2 bg-[#111111] rounded-lg h-[20rem]">
+     <div key={index} className="p-2 bg-[#111111] rounded-lg h-[20rem] ">
       <PieChart
        icon={chart.icon}
        data={data}
-       className="text-white"
+       className=""
        title={chart.title}
       />
      </div>

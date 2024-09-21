@@ -11,7 +11,7 @@ const StudentTable: React.FC = () => {
  const [dialogOpen, setDialogOpen] = useState(false);
 
  return (
-  <div className="min-h-[30rem] bg-[#2E2E2E] p-6">
+  <div className="min-h-[10rem] bg-[#202020] p-6">
    {/* Title */}
    <div
     className="flex items-center justify-start gap-2 mb-6 cursor-pointer"

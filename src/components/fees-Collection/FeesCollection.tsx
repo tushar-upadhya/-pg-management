@@ -42,7 +42,7 @@ const FeesCollection: React.FC = () => {
  ];
 
  return (
-  <div className="flex flex-col md:flex-row bg-[#202020] p-4 rounded-lg w-full max-w-[900px] space-y-6 md:space-y-0 md:space-x-6">
+  <div className="flex flex-col md:flex-row bg-[#202020] p-4 mt-12 rounded-lg w-full max-w-[900px] space-y-6 md:space-y-0 md:space-x-6">
    {/* Left side */}
    <div className="w-full md:w-1/3 flex items-center justify-center">
     {pieChartsData.map((chart, index) => (
