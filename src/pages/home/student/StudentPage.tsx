@@ -42,10 +42,9 @@ const StudentPage: React.FC = () => {
     </div>
    </div>
 
-   <div className="flex flex-col ml-[62rem] w-[19rem] mt-2 md:mt-0">
+   <div className="flex flex-col absolute ml-[53rem] w-[17rem] top-[27.5rem] md:mt-0">
     <StudentUpdateComponent />
    </div>
-
    <Modal isOpen={isModalOpen} onClose={closeModal} />
   </div>
  );
