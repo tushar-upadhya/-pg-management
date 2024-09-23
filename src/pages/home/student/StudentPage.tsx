@@ -42,7 +42,7 @@ const StudentPage: React.FC = () => {
     </div>
    </div>
 
-   <div className="flex absolute flex-col ml-[62rem] w-[19rem] top-[27.5rem]">
+   <div className="flex flex-col ml-[62rem] w-[19rem] mt-2 md:mt-0">
     <StudentUpdateComponent />
    </div>
 
