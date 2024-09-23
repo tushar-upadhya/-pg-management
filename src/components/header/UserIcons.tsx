@@ -13,7 +13,7 @@ const UserIcons: React.FC = () => {
    {icons.map((icon, index) => (
     <div
      key={index}
-     className="flex items-center sm:mt-4 mt-0 justify-center bg-[#2F2F2F] rounded-full w-[42px] h-[42px] hover:bg-[#3D3D3D] transition-colors duration-200"
+     className="flex items-center sm:mt-4 mt-0 md:-mt-12 lg:mt-0 justify-center bg-[#2F2F2F] rounded-full w-[42px] h-[42px] hover:bg-[#3D3D3D] transition-colors duration-200"
     >
      {icon}
     </div>

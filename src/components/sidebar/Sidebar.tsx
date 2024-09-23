@@ -7,19 +7,20 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ menuItems, className }) => {
-  const [isOpen, setIsOpen] = useState(window.innerWidth >= 1024); // Set initial state based on window width
-
-  const handleMenuClick = () => {
-    if (window.innerWidth < 1024) {
-      setIsOpen(false);
-    }
-  };
-
-  const handleResize = () => {
-    setIsOpen(window.innerWidth >= 1024);
-  };
+  const [isOpen, setIsOpen] = useState(() => window.innerWidth >= 1024);
+  const [isTabletOrMobile, setIsTabletOrMobile] = useState(() => window.innerWidth < 1024);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(true);
+        setIsTabletOrMobile(false);
+      } else {
+        setIsOpen(false);
+        setIsTabletOrMobile(true);
+      }
+    };
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -30,12 +31,17 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems, className }) => {
     setIsOpen((prev) => !prev);
   };
 
+  const handleMenuClick = () => {
+    if (isTabletOrMobile) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
-      {/* Button to open sidebar on small screens */}
-      {!isOpen && (
+      {isTabletOrMobile && !isOpen && (
         <button
-          className="fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-md md:hidden"
+          className="fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-md lg:hidden"
           aria-label="Open Sidebar"
           onClick={toggleSidebar}
         >
@@ -43,30 +49,48 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems, className }) => {
         </button>
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar component */}
       <aside
-        className={`fixed top-0 left-0 h-full transition-transform transform bg-black text-zinc-400 p-4 z-40 md:relative md:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} w-[13%] max-md:w-full md:static rounded-t-lg ml-2 text-lg ${className}`}
+        className={`
+          fixed top-0 left-0 text-2xl h-full bg-black text-zinc-400 p-4 z-40
+          transform transition-transform duration-300 ease-in-out
+          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+          lg:translate-x-0 lg:static lg:w-64
+          w-64
+          ${className ? className : ''}
+        `}
       >
-        <nav className="flex flex-col place-items-start">
+        {!isTabletOrMobile && (
+          <button
+            className="absolute top-4 right-4 text-white text-2xl lg:hidden"
+            aria-label="Close Sidebar"
+            onClick={toggleSidebar}
+          >
+            ×
+          </button>
+        )}
+
+        <nav className="mt-10 flex flex-col space-y-4">
           {menuItems.map((item, index) => (
             <NavLink
               key={index}
               to={item.path}
               onClick={handleMenuClick}
               className={({ isActive }) =>
-                `flex items-center gap-4 my-6 ${isActive ? 'text-white bg-[#2E2E2E] p-4 rounded-full' : 'hover:text-white'}`
+                `flex items-center gap-4 p-2 rounded-md transition-colors duration-200 ${isActive ? 'text-white bg-[#2E2E2E]' : 'hover:text-white'
+                }`
               }
             >
               <div className="shrink-0">{item.icon}</div>
-              <div>{item.label}</div>
+              <span>{item.label}</span>
             </NavLink>
           ))}
         </nav>
       </aside>
 
-      {isOpen && window.innerWidth < 1024 && (
+      {!isTabletOrMobile && isOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-30 md:hidden"
+          className="fixed inset-0 bg-black opacity-50 z-30 lg:hidden"
           onClick={toggleSidebar}
           aria-hidden="true"
         />

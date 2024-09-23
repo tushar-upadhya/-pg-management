@@ -18,13 +18,13 @@ const Navigation: React.FC = () => {
   }));
 
   return (
-    <nav className="flex flex-wrap justify-center md:justify-center ml-0 md:ml-52 gap-4 md:gap-14 text-lg font-medium text-zinc-400 p-4 rounded-lg">
+    <nav className="flex flex-wrap justify-center md:justify-center ml-0 md:ml-0 gap-4 md:gap-14 text-lg font-medium text-zinc-400 p-4 rounded-lg">
       {navItems.map((item, index) => (
         <Link
           key={index}
           to={item.path}
           className={`flex items-center transition-colors duration-300 ${item.active ? 'text-white' : 'hover:text-white'
-            } ${window.innerWidth < 768 ? 'p-2' : 'p-4'}`}
+            } ${window.innerWidth < 768 ? 'p-2' : 'justify-center h-1 md:-mt-16 lg:mt-0'}`}
         >
           <div className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0">
             {item.icon}

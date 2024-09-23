@@ -16,7 +16,6 @@ const initialComplaintsData = {
 };
 
 const Complaint: React.FC = () => {
- const [data, setData] = useState(chartData);
  const [complaintsData] = useState(initialComplaintsData);
 
  const fetchData = async () => {
@@ -25,8 +24,7 @@ const Complaint: React.FC = () => {
 
  useEffect(() => {
   const loadData = async () => {
-   const fetchedData = await fetchData();
-   setData(fetchedData);
+   await fetchData();
   };
   loadData();
  }, []);
@@ -47,9 +45,7 @@ const Complaint: React.FC = () => {
    <div className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-4">
     {/* Total Complaints */}
     <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
-     <h4 className="text-white text-sm mb-2">
-      Total Complaints
-     </h4>
+     <h4 className="text-white text-sm mb-2">Total Complaints</h4>
      <p className="text-xl font-semibold text-white">
       {complaintsData.total}
      </p>
@@ -57,9 +53,7 @@ const Complaint: React.FC = () => {
 
     {/* Resolved Complaints */}
     <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
-     <h4 className="text-white text-sm mb-2">
-      Resolved
-     </h4>
+     <h4 className="text-white text-sm mb-2">Resolved</h4>
      <p
       className="text-xl font-semibold"
       style={{ color: complaintsData.colors.resolved }}
@@ -70,9 +64,7 @@ const Complaint: React.FC = () => {
 
     {/* Open Complaints */}
     <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
-     <h4 className="text-white text-sm mb-2">
-      Open
-     </h4>
+     <h4 className="text-white text-sm mb-2">Open</h4>
      <p
       className="text-xl font-semibold"
       style={{ color: complaintsData.colors.open }}

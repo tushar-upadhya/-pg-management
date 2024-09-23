@@ -30,7 +30,7 @@ const StudentPage: React.FC = () => {
     </div>
    </div>
 
-   <div className="flex flex-col text-nowrap text-sm md:flex-row gap-4 justify-start mt-4 items-start">
+   <div className="flex flex-col text-wrap text-sm md:flex-row gap-4 justify-start mt-4 items-start">
     <div className="w-full p-2 md:w-3/5 lg:w-[37%]">
      <StudentTable />
     </div>
@@ -39,7 +39,7 @@ const StudentPage: React.FC = () => {
     </div>
    </div>
 
-   <div className="absolute left-0 md:left-[80rem] top-[31rem] hidden md:block w-full md:w-auto">
+   <div className="absolute left-0 md:left-[80rem] top-[28rem] hidden md:block w-full md:w-auto">
     <StudentUpdateComponent />
    </div>
 

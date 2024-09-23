@@ -1,5 +1,4 @@
 import Complaint from "@/components/Complaint/Complaint";
-import { DatatableThead } from "@/components/dataTable/DataTable";
 import EmergencyButton from "@/components/EmergencyButton/EmergencyButton";
 import FeesCollection from "@/components/fees-Collection/FeesCollection";
 import { homeTableType } from "@/lib/datatable/HomeTable";
@@ -19,30 +18,19 @@ const fetchData = async () => {
 };
 
 const HomePage = () => {
- const [data, setData] = useState(chartData);
+ const [data, setData] = useState<{ browser: string; visitors: number; fill: string }[]>([]);
  const [inventory, setInventory] = useState<homeTableType[]>([]);
 
- // DataTable
+ // Load initial data for the data table
  useEffect(() => {
   const dummyData: homeTableType[] = [
    // Sample data goes here
+   // Example: { names: "John Doe", entryTime: "08:00 AM", entryOut: "05:00 PM", imgURL: "example.com/image.jpg" }
   ];
   setInventory(dummyData);
  }, []);
 
- const THead: DatatableThead[] = [
-  // Define your table headers here
- ];
-
- const TBodyRender = (item: homeTableType) => {
-  return {
-   names: `${item.names}`,
-   entryTime: `${item.entryTime}`,
-   entryOut: `${item.entryOut}`,
-   imgURL: `${item.imgURL}`,
-  };
- };
-
+ // Load pie chart data
  useEffect(() => {
   const loadData = async () => {
    const fetchedData = await fetchData();
@@ -88,8 +76,7 @@ const HomePage = () => {
      <div key={index} className="p-2 bg-[#111111] rounded-lg h-[20rem] ">
       <PieChart
        icon={chart.icon}
-       data={data}
-       className=""
+       data={data} // Pass fetched pie chart data
        title={chart.title}
       />
      </div>

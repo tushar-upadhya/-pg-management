@@ -28,7 +28,48 @@ const defaultersList: Defaulter[] = [
   fine: "₹500",
   date: "20 Sep 2022",
  },
- // Additional dummy data...
+ {
+  name: "Abhinav Srivastva",
+  avatar: "https://via.placeholder.com/40",
+  issue: "Broke 4 Test Tubes in Hostel Mess",
+  fine: "₹1,500",
+  date: "12 Nov 2022",
+ },
+ {
+  name: "Rohit Sharma",
+  avatar: "https://via.placeholder.com/40",
+  issue: "Lost a library book",
+  fine: "₹500",
+  date: "20 Sep 2022",
+ },
+ {
+  name: "Abhinav Srivastva",
+  avatar: "https://via.placeholder.com/40",
+  issue: "Broke 4 Test Tubes in Hostel Mess",
+  fine: "₹1,500",
+  date: "12 Nov 2022",
+ },
+ {
+  name: "Rohit Sharma",
+  avatar: "https://via.placeholder.com/40",
+  issue: "Lost a library book",
+  fine: "₹500",
+  date: "20 Sep 2022",
+ },
+ {
+  name: "Abhinav Srivastva",
+  avatar: "https://via.placeholder.com/40",
+  issue: "Broke 4 Test Tubes in Hostel Mess",
+  fine: "₹1,500",
+  date: "12 Nov 2022",
+ },
+ {
+  name: "Rohit Sharma",
+  avatar: "https://via.placeholder.com/40",
+  issue: "Lost a library book",
+  fine: "₹500",
+  date: "20 Sep 2022",
+ },
 ];
 
 const DefaultersList: React.FC = () => {

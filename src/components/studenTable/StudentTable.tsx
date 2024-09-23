@@ -42,7 +42,7 @@ const StudentTable: React.FC = () => {
    {/* Student List */}
    <ScrollArea.Root className="h-[30rem] overflow-hidden rounded-lg">
     <ScrollArea.Viewport className="w-full h-full">
-     <div className="space-y-2">
+     <div className="space-y-4">
       {students.map((student, index) => (
        <Card
         key={index}
