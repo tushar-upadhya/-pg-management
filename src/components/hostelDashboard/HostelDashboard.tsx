@@ -45,7 +45,7 @@ const HostelDashboard: React.FC<HostelDashboardProps> = ({
    <CardContent className="flex flex-col md:flex-row justify-between items-start space-y-6 md:space-y-0 md:space-x-4">
     {/* Chart Section */}
     <div className="flex flex-col items-center md:w-1/4">
-     <PieChart width={160} height={160}>
+     <PieChart width={160} height={360}>
       <Pie
        data={chartData}
        dataKey="value"
