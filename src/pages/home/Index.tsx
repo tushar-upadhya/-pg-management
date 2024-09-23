@@ -76,7 +76,7 @@ const HomePage = () => {
      <div key={index} className="p-2 bg-[#111111] rounded-lg h-[20rem] ">
       <PieChart
        icon={chart.icon}
-       data={data} // Pass fetched pie chart data
+       data={data}
        title={chart.title}
       />
      </div>

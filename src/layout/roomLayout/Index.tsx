@@ -13,11 +13,11 @@ const RoomLayout: React.FC = () => {
  ];
 
  return (
-  <div className="flex h-screen flex-col md:flex-col">
+  <div className="flex flex-col bg-black">
    <Header />
-   <div className="flex flex-1 mt-2">
-    <Sidebar menuItems={roomMenuItems} />
-    <main className="flex-1 p-2">
+   <div className="flex flex-1 p-4 md:flex-row md:mt-0">
+    <Sidebar className="-mt-4" menuItems={roomMenuItems} />
+    <main className="flex-1 overflow-hidden">
      <Outlet />
     </main>
    </div>
