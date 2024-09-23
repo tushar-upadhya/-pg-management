@@ -34,12 +34,15 @@ const StudentPage: React.FC = () => {
     <div className="w-full p-2 md:w-3/5 lg:w-[37%]">
      <StudentTable />
     </div>
-    <div className="bg-[#2E2E2E] w-full mt-2 p-2 md:w-3/5 lg:w-[37%] flex flex-col">
-     <DefaultersList />
+
+    <div className="flex flex-col md:flex-row gap-4 w-full md:w-[37%] lg:w-[37%]">
+     <div className="bg-[#2E2E2E] w-full p-2">
+      <DefaultersList />
+     </div>
     </div>
    </div>
 
-   <div className="absolute left-0 md:left-[80rem] top-[28rem] hidden md:block w-full md:w-auto">
+   <div className="flex absolute flex-col ml-[62rem] w-[19rem] top-[27.5rem]">
     <StudentUpdateComponent />
    </div>
 
