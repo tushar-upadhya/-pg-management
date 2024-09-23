@@ -42,9 +42,11 @@ const StudentPage: React.FC = () => {
     </div>
    </div>
 
-   <div className="flex flex-col absolute ml-[53rem] w-[17rem] top-[27.5rem] md:mt-0">
+   {/* Hide StudentUpdateComponent on mobile and tablet screens */}
+   <div className="hidden lg:flex flex-col absolute ml-[53rem] w-[17rem] top-[27.5rem] md:mt-0">
     <StudentUpdateComponent />
    </div>
+
    <Modal isOpen={isModalOpen} onClose={closeModal} />
   </div>
  );
