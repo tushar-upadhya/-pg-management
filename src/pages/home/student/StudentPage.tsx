@@ -14,7 +14,7 @@ const StudentPage: React.FC = () => {
  const closeModal = () => setIsModalOpen(false);
 
  return (
-  <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 p-4 md:p-6">
+  <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 p-4 md:p-6 relative">
    <div className="flex flex-col md:flex-row justify-start items-start">
     <div className="bg-[#2E2E2E] w-full md:w-3/5 lg:w-9/12 -mt-64">
      <StudentState />
@@ -36,9 +36,11 @@ const StudentPage: React.FC = () => {
      </div>
     </div>
    </div>
-   <div className="justify-end -mt-[38.5rem] -mr-4 hidden md:flex">    <div className="w-full max-w-xs ">
-    <StudentUpdateComponent />
-   </div>
+   {/* Fixed positioning for the StudentUpdateComponent */}
+   <div className="hidden md:flex fixed right-0 top-1/2 transform -translate-y-1/2 z-10">
+    <div className="w-full max-w-xs">
+     <StudentUpdateComponent />
+    </div>
    </div>
    <Modal isOpen={isModalOpen} onClose={closeModal} />
   </div>
