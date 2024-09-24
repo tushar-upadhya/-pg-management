@@ -44,24 +44,27 @@ const FurnitureState: React.FC<FurnitureStateProps> = ({
     <CardTitle className="text-xl font-semibold self-start">{hostelName}</CardTitle>
    </CardHeader>
 
-   <CardContent className="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between items-start">
+   <CardContent className="flex flex-col items-center md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4">
 
     {/* Info Section */}
-    <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center max-w-full">
+    <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 max-w-[25rem] gap-4 text-center">
+     {/* Cards for Room Info */}
      {[
       { label: "Total Rooms", value: totalRooms },
       { label: "Occupied", value: occupiedRooms, isHighlight: true },
       { label: "Floors", value: floors },
+      { label: "Floors", value: floors },
      ].map((item, index) => (
       <div key={index} className="bg-[#141414] p-4 rounded-lg">
-       <p className={`font-bold text-xl ${item.isHighlight ? "text-yellow-400" : ""}`}>
+       <p className={`font-bold text-xl ${item.isHighlight ? 'text-yellow-400' : ''}`}>
         {item.value}
        </p>
        <p className="text-sm text-gray-400">{item.label}</p>
       </div>
      ))}
 
-     <div className="col-span-1 sm:col-span-2 lg:col-span-3 bg-[#141414] p-4 rounded-lg">
+     {/* Second row */}
+     <div className="col-span-2 mt-4 bg-[#141414] p-4 rounded-lg">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
        {[
         { label: "Total Students", value: totalStudents },
@@ -69,7 +72,7 @@ const FurnitureState: React.FC<FurnitureStateProps> = ({
         { label: "Outside Hostel", value: outsideHostel },
        ].map((item, index) => (
         <div key={index} className="text-center">
-         <p className={`font-bold text-xl ${item.isHighlight ? "text-blue-400" : ""}`}>
+         <p className={`font-bold text-xl ${item.isHighlight ? 'text-blue-400' : ''}`}>
           {item.value}
          </p>
          <p className="text-sm text-gray-400">{item.label}</p>
@@ -80,25 +83,28 @@ const FurnitureState: React.FC<FurnitureStateProps> = ({
     </div>
 
     {/* Chart Section */}
-    <div className="flex flex-col md:flex-row items-center justify-between md:space-x-4 p-4 bg-[#141414] w-full sm:w-auto md:w-[28rem]">
-     {/* Button Section */}
-     <div className="flex justify-start space-x-4 mb-4 md:mb-0">
-      <Button className="p-3 bg-[#111111]">
-       <ChartNoAxesCombined size={20} />
-      </Button>
-      <Button className="p-3 bg-[#111111]">
-       <ChartNoAxesCombined size={20} />
-      </Button>
-      <Button className="p-3 bg-[#111111]">
-       <ChartNoAxesCombined size={20} />
-      </Button>
-      <Button className="p-3 bg-[#111111]">
-       <ChartNoAxesCombined size={20} />
-      </Button>
+    <div className="flex flex-col items-start justify-between p-4 md:w-[33rem] bg-[#141414]">
+     {/* Buttons Section */}
+     <div className=" place-items-start mb-4 hidden lg:flex">
+      <div className="flex items-center justify-center space-x-4 -mt-[5.5rem]">
+       <Button className="p-3 bg-[#111111]">
+        <ChartNoAxesCombined size={20} />
+       </Button>
+       <Button className="p-3 bg-[#111111]">
+        <ChartNoAxesCombined size={20} />
+       </Button>
+       <Button className="p-3 bg-[#111111]">
+        <ChartNoAxesCombined size={20} />
+       </Button>
+       <Button className="p-3 bg-[#111111]">
+        <ChartNoAxesCombined size={20} />
+       </Button>
+      </div>
      </div>
 
-     <div className="flex justify-center items-center">
-      <PieChart width={160} height={160}>
+
+     <div className="flex flex-col sm:flex-row items-center justify-between">
+      <PieChart width={160} height={260}>
        <Pie
         data={chartData}
         dataKey="value"
@@ -114,22 +120,25 @@ const FurnitureState: React.FC<FurnitureStateProps> = ({
         />
        </Pie>
       </PieChart>
-
-      {/* Labels next to PieChart */}
-      <div className="ml-4 grid grid-cols-1 gap-4 text-left">
-       {[
-        { label: "Occupancy Rate", value: `${occupancyRate}%`, color: "text-[#FFE605]" },
-        { label: "Occupancy Rate", value: `${occupancyRate}%`, color: "text-[#FF05C8]" },
-       ].map((item, index) => (
-        <p key={index} className={`${item.color} font-bold text-lg`}>
-         {item.label} <span>{item.value}</span>
-        </p>
-       ))}
+      {/* Right Label for the PieChart */}
+      <div className="ml-8 grid grid-cols-2 h-52 text-s text-gray-400">
+       <p className="space-y-8">
+        Occupancy Rate <span className="font-bold text-lg p-4"> {occupancyRate}%</span>
+       </p>
+       <p className="">
+        Occupancy Rate <span className="font-bold text-lg p-4">{occupancyRate}%</span>
+       </p>
+       <p className="">
+        Occupancy Rate <span className="font-bold p-4 text-lg text-[#FFE605]">{occupancyRate}%</span>
+       </p>
+       <p className="">
+        Occupancy Rate <span className="font-bold p-4 text-lg text-[#FF05C8]">{occupancyRate}%</span>
+       </p>
       </div>
      </div>
     </div>
 
-    {/* Furniture List */}
+    {/* Right section - Furniture List */}
     <div className="flex justify-center items-start sm:justify-center md:w-1/4 mt-4 md:mt-0">
      <FurnitureList />
     </div>
