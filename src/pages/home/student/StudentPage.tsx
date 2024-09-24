@@ -26,18 +26,20 @@ const StudentPage: React.FC = () => {
      </div>
     </div>
    </div>
-   <div className="flex flex-col text-wrap text-sm md:flex-row gap-4 justify-start mt-4 items-start">
+   <div className="flex flex-col text-wrap text-sm md:flex-row gap-4 justify-start items-start">
     <div className="w-full p-2 md:w-3/5 lg:w-[37%]">
      <StudentTable />
     </div>
     <div className="flex flex-col md:flex-row gap-4 w-full md:w-[37%] lg:w-[37%]">
-     <div className="bg-[#2E2E2E] w-full p-2">
+     <div className="bg-[#2E2E2E] w-full mt-2">
       <DefaultersList />
      </div>
     </div>
    </div>
-   <div>
-    <StudentUpdateComponent />
+   <div className="flex justify-end -mt-[38.5rem] -mr-4">
+    <div className="w-full max-w-xs">
+     <StudentUpdateComponent />
+    </div>
    </div>
    <Modal isOpen={isModalOpen} onClose={closeModal} />
   </div>

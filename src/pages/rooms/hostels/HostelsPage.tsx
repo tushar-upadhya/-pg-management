@@ -21,7 +21,7 @@ const hostelData = {
 
 const HostelsPage: React.FC = () => {
  return (
-  <div className='p-4 h-screen'>
+  <div className='p-4'>
    <div className='grid w-full h-full grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4'>
     <ChartWithTables {...hostelData} />
     <ChartWithTables {...hostelData} />

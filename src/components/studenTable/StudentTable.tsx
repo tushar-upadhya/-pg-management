@@ -33,7 +33,7 @@ const StudentTable: React.FC = () => {
       {students.map((student, index) => (
        <Card
         key={index}
-        className="bg-[#111111] p-4 flex items-center justify-between text-white rounded-lg"
+        className="bg-[#111111] p-4 flex [border:none] [outline:none]  items-center justify-between text-white rounded-lg"
        >
         <div className="flex items-center space-x-4">
          {/* Avatar */}
