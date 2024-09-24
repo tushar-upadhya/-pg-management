@@ -26,7 +26,7 @@ const Header: React.FC = () => {
  }, []);
 
  return (
-  <header className="flex justify-between items-center px-4 md:px-8 lg:px-20 w-full bg-neutral-800 py-4 relative">
+  <header className="flex justify-between items-center px-4 md:px-8 lg:px-20 w-full bg-[#202020] py-4 relative">
    {/* Logo */}
    <div className="flex-shrink-0">
     <Logo />
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
    {isMenuOpen && (
     <div
      ref={menuRef}
-     className="lg:hidden flex flex-col items-center gap-4 bg-neutral-800 w-full p-2 absolute top-full left-0 z-50 transition-transform duration-300 ease-in-out"
+     className="lg:hidden flex flex-col items-center bg-[#202020] gap-4 w-full p-2 absolute top-full left-0 z-50 transition-transform duration-300 ease-in-out"
     >
      <Navigation />
      <UserIcons />
