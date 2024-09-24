@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface FeeData {
  totalStudents: { amount: number; color: string };
@@ -27,85 +27,46 @@ const StudentState: React.FC = () => {
   <div className="w-full h-auto mt-64 sm:mt-64 rounded-lg bg-[#2E2E2E] flex items-center justify-center p-4 md:p-8">
    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-5xl">
     {/* Total Students */}
-    <div className="bg-[#111111] p-4 rounded-md flex justify-between items-start">
-     <div>
-      <h4 className="text-white text-sm">Total Students</h4>
-      <p className="text-lg font-semibold" style={{ color: feeData.totalStudents.color }}>
-       {feeData.totalStudents.amount.toLocaleString()}
-      </p>
-     </div>
-     <span className="text-white cursor-pointer">
-      <ExternalLink />
-     </span>
-    </div>
-
+    <FeeCard title="Total Students" amount={feeData.totalStudents} />
     {/* In Hostel */}
-    <div className="bg-[#111111] p-4 rounded-md flex justify-between items-start">
-     <div>
-      <h4 className="text-white text-sm">In Hostel</h4>
-      <p className="text-lg font-semibold" style={{ color: feeData.inHostel.color }}>
-       {feeData.inHostel.amount.toLocaleString()}
-      </p>
-     </div>
-     <span className="text-white cursor-pointer">
-      <ExternalLink />
-     </span>
-    </div>
-
+    <FeeCard title="In Hostel" amount={feeData.inHostel} />
     {/* Outside Hostel */}
-    <div className="bg-[#111111] p-4 rounded-md flex justify-between items-start">
-     <div>
-      <h4 className="text-white text-sm">Outside Hostel</h4>
-      <p className="text-lg font-semibold" style={{ color: feeData.outsideHostel.color }}>
-       {feeData.outsideHostel.amount.toLocaleString()}
-      </p>
-     </div>
-     <span className="text-white cursor-pointer">
-      <ExternalLink />
-     </span>
-    </div>
-
+    <FeeCard title="Outside Hostel" amount={feeData.outsideHostel} />
     {/* Fee Defaulters */}
-    <div className="bg-[#111111] p-4 rounded-md flex flex-col justify-between items-start">
-     <div className="w-full">
-      <h4 className="text-white text-sm">Fee Defaulters</h4>
-      <p className="text-lg font-semibold" style={{ color: feeData.feeDefaulters.color }}>
-       {feeData.feeDefaulters.amount.toLocaleString()}
-      </p>
-      <Button className="mt-1 w-full p-0">
-       View List
-      </Button>
-     </div>
-    </div>
-
+    <DefaulterCard amount={feeData.feeDefaulters} />
     {/* Students Assigned */}
-    <div className="bg-[#111111] p-4 rounded-md flex justify-between items-start col-span-1 md:col-span-2">
-     <div>
-      <h4 className="text-white text-sm">Students Assigned</h4>
-      <p className="text-lg font-semibold" style={{ color: feeData.studentsAssigned.color }}>
-       {feeData.studentsAssigned.amount.toLocaleString()}
-      </p>
-     </div>
-     <span className="text-white cursor-pointer">
-      <ExternalLink />
-     </span>
-    </div>
-
+    <FeeCard title="Students Assigned" amount={feeData.studentsAssigned} />
     {/* Students Removed */}
-    <div className="bg-[#111111] p-4 rounded-md flex justify-between items-start col-span-1 md:col-span-2">
-     <div>
-      <h4 className="text-white text-sm">Students Removed</h4>
-      <p className="text-lg font-semibold" style={{ color: feeData.studentsRemoved.color }}>
-       {feeData.studentsRemoved.amount.toLocaleString()}
-      </p>
-     </div>
-     <span className="text-white cursor-pointer">
-      <ExternalLink />
-     </span>
-    </div>
+    <FeeCard title="Students Removed" amount={feeData.studentsRemoved} />
    </div>
   </div>
  );
 };
+
+const FeeCard: React.FC<{ title: string; amount: { amount: number; color: string } }> = ({ title, amount }) => (
+ <div className="bg-[#111111] p-4 rounded-md flex justify-between items-start">
+  <div>
+   <h4 className="text-white text-sm">{title}</h4>
+   <p className="text-lg font-semibold" style={{ color: amount.color }}>
+    {amount.amount.toLocaleString()}
+   </p>
+  </div>
+  <span className="text-white cursor-pointer">
+   <ExternalLink />
+  </span>
+ </div>
+);
+
+const DefaulterCard: React.FC<{ amount: { amount: number; color: string } }> = ({ amount }) => (
+ <div className="bg-[#111111] p-4 rounded-md flex flex-col justify-between items-start">
+  <div className="w-full">
+   <h4 className="text-white text-sm">Fee Defaulters</h4>
+   <p className="text-lg font-semibold" style={{ color: amount.color }}>
+    {amount.amount.toLocaleString()}
+   </p>
+   <Button className="mt-1 w-full p-0">View List</Button>
+  </div>
+ </div>
+);
 
 export default StudentState;

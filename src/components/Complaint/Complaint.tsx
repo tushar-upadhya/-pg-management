@@ -1,74 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const chartData = [
- { browser: "Resolved", visitors: 96, fill: "#00FFF5" },
- { browser: "Open", visitors: 62, fill: "#FFE605" },
-];
-
-const initialComplaintsData = {
- total: 158,
- resolved: 96,
- open: 62,
+const complaintsData = {
+ total: 300,
+ resolved: 150,
+ open: 150,
  colors: {
+  total: "#FFE605",
   resolved: "#00FFF5",
-  open: "#FFE605",
+  open: "#FF05C8",
  },
 };
 
 const Complaint: React.FC = () => {
- const [complaintsData] = useState(initialComplaintsData);
-
- const fetchData = async () => {
-  return chartData;
- };
-
- useEffect(() => {
-  const loadData = async () => {
-   await fetchData();
-  };
-  loadData();
- }, []);
-
  return (
-  <div className="flex bg-[#202020] p-4 justify-between rounded-lg w-full flex-col md:flex-row">
-   {/* Left: Color Block */}
-   <div className="w-full md:w-1/4 flex items-center justify-center mb-4 md:mb-0">
-    <div className="relative">
-     <div className="h-20 w-full md:w-32 rounded-lg overflow-hidden flex">
-      <div className="w-1/2 h-full bg-[#00FFF5]"></div>
-      <div className="w-1/2 h-full bg-[#FFE605]"></div>
-     </div>
-    </div>
-   </div>
+  <div className="bg-[#202020] p-6 rounded-lg">
+   <h2 className="text-white text-xl mb-4">Complaints</h2>
 
-   {/* Right: Complaint Stats */}
-   <div className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-4">
+   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     {/* Total Complaints */}
     <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
      <h4 className="text-white text-sm mb-2">Total Complaints</h4>
-     <p className="text-xl font-semibold text-white">
+     <p className="text-xl font-semibold" style={{ color: complaintsData.colors.total }}>
       {complaintsData.total}
      </p>
     </div>
 
     {/* Resolved Complaints */}
     <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
-     <h4 className="text-white text-sm mb-2">Resolved</h4>
-     <p
-      className="text-xl font-semibold"
-      style={{ color: complaintsData.colors.resolved }}
-     >
+     <h4 className="text-white text-sm mb-2">Resolved Complaints</h4>
+     <p className="text-xl font-semibold" style={{ color: complaintsData.colors.resolved }}>
       {complaintsData.resolved}
      </p>
     </div>
 
     {/* Open Complaints */}
     <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
-     <h4 className="text-white text-sm mb-2">Open</h4>
-     <p
-      className="text-xl font-semibold"
-      style={{ color: complaintsData.colors.open }}
-     >
+     <h4 className="text-white text-sm mb-2">Open Complaints</h4>
+     <p className="text-xl font-semibold" style={{ color: complaintsData.colors.open }}>
       {complaintsData.open}
      </p>
     </div>

@@ -25,7 +25,6 @@ const HomePage = () => {
  useEffect(() => {
   const dummyData: homeTableType[] = [
    // Sample data goes here
-   // Example: { names: "John Doe", entryTime: "08:00 AM", entryOut: "05:00 PM", imgURL: "example.com/image.jpg" }
   ];
   setInventory(dummyData);
  }, []);
@@ -39,7 +38,6 @@ const HomePage = () => {
   loadData();
  }, []);
 
- // Pie chart data
  const pieChartsData = [
   {
    title: "Hostel 1",
@@ -85,7 +83,6 @@ const HomePage = () => {
 
    {/* Student Updates and Emergency Section */}
    <div className="lg:col-span-1 mt-4 space-y-6">
-    {/* Student Update Section */}
     <div className="p-4 bg-[#111111] rounded-lg h-[28rem]">
      <h2 className="text-xl font-semibold mb-4">Student Update</h2>
      <ScrollArea type="always" scrollbars="vertical" className="h-64">
@@ -98,18 +95,15 @@ const HomePage = () => {
      </ScrollArea>
     </div>
 
-    {/* Emergency Button Section */}
     <div className="p-4 bg-[#111111] rounded-lg flex items-center justify-center">
      <EmergencyButton />
     </div>
    </div>
 
-   {/* Fee Collection Section */}
    <div className="lg:col-span-2 mt-8 md:mt-16 lg:-mt-[32rem] rounded-lg">
     <FeesCollection />
    </div>
 
-   {/* Complaint Section */}
    <div className="lg:col-span-2 p-4 mt-8 md:mt-16 lg:-mt-[12rem] rounded-lg">
     <Complaint />
    </div>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { students } from "@/lib/data/studentData";
+import { students } from "@/lib/data/studentData"; // Ensure this path is correct
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import { ExternalLink, Eye } from "lucide-react";
@@ -26,19 +26,6 @@ const StudentTable: React.FC = () => {
     </Button>
    </div>
 
-   {/* Search and Filter Bar */}
-
-   {/* <div className="flex items-center space-x-4 mb-4">
-    <Input
-     placeholder="Search..."
-     className="bg-[#3C3C3C] text-white w-full [border:none] [outline:none]"
-    />
-    <Button className="bg-[#4C4C4C] text-white flex items-center space-x-2 focus:outline-none">
-     <Filter />
-     <span>Filter</span>
-    </Button>
-   </div> */}
-
    {/* Student List */}
    <ScrollArea.Root className="h-[30rem] overflow-hidden rounded-lg">
     <ScrollArea.Viewport className="w-full h-full">
@@ -46,7 +33,7 @@ const StudentTable: React.FC = () => {
       {students.map((student, index) => (
        <Card
         key={index}
-        className="bg-[#111111] p-4 flex [border:none] [outline:none] items-center justify-between text-white rounded-lg"
+        className="bg-[#111111] p-4 flex items-center justify-between text-white rounded-lg"
        >
         <div className="flex items-center space-x-4">
          {/* Avatar */}
@@ -54,34 +41,29 @@ const StudentTable: React.FC = () => {
           <AvatarImage
            src="https://via.placeholder.com/40"
            alt={student.name}
-           className="rounded-full"
+           className="object-cover rounded-full bg-transparent"
           />
           <AvatarFallback>{student.name.charAt(0)}</AvatarFallback>
          </Avatar>
-
-         {/* Student Info */}
-         <div>
-          <p className="text-sm font-semibold">{student.name}</p>
+         <div className="flex flex-col">
+          <h4 className="font-medium">{student.name}</h4>
+          <span className="text-gray-400 text-sm">{student.email}</span>
          </div>
         </div>
-        {/* View Button */}
-        <Button variant="outline" className="border-none bg-transparent hover:bg-inherit hover:text-white text-gray-400 focus:outline-none">
-         <Eye />
+        <Button variant="outline" className="p-2">
+         <Eye className="w-4 h-4" />
         </Button>
        </Card>
       ))}
      </div>
     </ScrollArea.Viewport>
-
-    {/* Scrollbar */}
-    <ScrollArea.Scrollbar orientation="vertical" className="bg-gray-700 rounded-full w-2">
-     <ScrollArea.Thumb className="bg-gray-400 rounded-full" />
-    </ScrollArea.Scrollbar>
-
-    <ScrollArea.Corner className="bg-gray-700" />
    </ScrollArea.Root>
 
-   <StudentListDialog students={students} isOpen={dialogOpen} onClose={() => setDialogOpen(false)} />
+   <StudentListDialog
+    students={students}
+    isOpen={dialogOpen}
+    onClose={() => setDialogOpen(false)}
+   />
   </div>
  );
 };

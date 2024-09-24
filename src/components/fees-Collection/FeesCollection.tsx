@@ -43,7 +43,6 @@ const FeesCollection: React.FC = () => {
 
  return (
   <div className="flex flex-col md:flex-row bg-[#202020] p-4 mt-12 rounded-lg w-full max-w-[900px] space-y-6 md:space-y-0 md:space-x-6">
-   {/* Left side */}
    <div className="w-full md:w-1/3 flex items-center justify-center">
     {pieChartsData.map((chart, index) => (
      <div key={index} className="relative">
@@ -55,9 +54,7 @@ const FeesCollection: React.FC = () => {
     ))}
    </div>
 
-   {/* Right side */}
    <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4">
-    {/* Expected */}
     <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
      <div>
       <h4 className="text-white text-sm">Expected</h4>
@@ -70,20 +67,6 @@ const FeesCollection: React.FC = () => {
      </span>
     </div>
 
-    {/* Remaining */}
-    <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
-     <div>
-      <h4 className="text-white text-sm">Remaining</h4>
-      <p className="text-lg font-semibold" style={{ color: feeData.remaining.color }}>
-       ₹ {feeData.remaining.amount.toLocaleString()}
-      </p>
-     </div>
-     <span className="text-white cursor-pointer">
-      <ExternalLink />
-     </span>
-    </div>
-
-    {/* Collected */}
     <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
      <div>
       <h4 className="text-white text-sm">Collected</h4>
@@ -96,7 +79,18 @@ const FeesCollection: React.FC = () => {
      </span>
     </div>
 
-    {/* Overdue */}
+    <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
+     <div>
+      <h4 className="text-white text-sm">Remaining</h4>
+      <p className="text-lg font-semibold" style={{ color: feeData.remaining.color }}>
+       ₹ {feeData.remaining.amount.toLocaleString()}
+      </p>
+     </div>
+     <span className="text-white cursor-pointer">
+      <ExternalLink />
+     </span>
+    </div>
+
     <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
      <div>
       <h4 className="text-white text-sm">Overdue</h4>

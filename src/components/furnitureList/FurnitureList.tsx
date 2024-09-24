@@ -15,7 +15,7 @@ const furnitureData: FurnitureItem[] = [
 
 const FurnitureList: FC = () => {
  return (
-  <Card className="bg-[#141414] text-nowrap border-none outline-none text-white rounded-lg  sm:p-6 w-full max-w-sm shadow-lg">
+  <Card className="bg-[#141414] text-nowrap border-none outline-none text-white rounded-lg sm:p-6 w-full max-w-sm shadow-lg">
    <CardHeader>
     <CardTitle className="flex items-center text-lg font-semibold">
      <span>Furniture</span>
@@ -30,9 +30,9 @@ const FurnitureList: FC = () => {
       key={index}
       className="flex items-center w-full justify-between px-2 py-2 sm:py-4 md:py-4 bg-[#202020] rounded-lg hover:bg-[#303030] transition-colors"
      >
-      <div className="text-base flex-1 min-w-[60%]">{item.name}</div>
+      <div className="text-base md:text-sm flex-1 min-w-[60%]">{item.name}</div>
       <div className="flex items-center space-x-2 justify-between">
-       <span className="font-medium">{String(item.count).padStart(2, "0")}</span>
+       <span className="font-medium md:text-sm">{String(item.count).padStart(2, "0")}</span>
        <ArrowRight className="h-4 w-4 text-gray-400" />
       </div>
      </div>

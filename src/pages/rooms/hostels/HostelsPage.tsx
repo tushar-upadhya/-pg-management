@@ -18,17 +18,15 @@ const hostelData = {
   { item: "Kettle", count: 12 },
  ],
 };
+
 const HostelsPage: React.FC = () => {
  return (
   <div className='p-4 h-screen'>
-   <div className='grid w-full h-full grid-cols-1 sm:grid-cols-1 gap-4'>
+   <div className='grid w-full h-full grid-cols-1 gap-4'>
     <ChartWithTables {...hostelData} />
    </div>
-   <div>
-
-   </div>
-
   </div>
- )
-}
-export default HostelsPage
+ );
+};
+
+export default HostelsPage;
