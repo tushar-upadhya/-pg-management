@@ -36,10 +36,9 @@ const StudentPage: React.FC = () => {
      </div>
     </div>
    </div>
-   <div className="flex justify-end -mt-[38.5rem] -mr-4">
-    <div className="w-full max-w-xs">
-     <StudentUpdateComponent />
-    </div>
+   <div className="justify-end -mt-[38.5rem] -mr-4 hidden md:flex">    <div className="w-full max-w-xs ">
+    <StudentUpdateComponent />
+   </div>
    </div>
    <Modal isOpen={isModalOpen} onClose={closeModal} />
   </div>
