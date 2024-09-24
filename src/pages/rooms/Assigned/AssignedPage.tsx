@@ -1,4 +1,3 @@
-// src/pages/rooms/AssignedPage.tsx
 import React from 'react';
 
 const AssignedPage: React.FC = () => {
