@@ -47,7 +47,7 @@ const StudentTable: React.FC = () => {
          </Avatar>
          <div className="flex flex-col">
           <h4 className="font-medium">{student.name}</h4>
-          <span className="text-gray-400 text-sm">{student.email}</span>
+          {/* <span className="text-gray-400 text-sm">{student.email}</span> */}
          </div>
         </div>
         <Button variant="outline" className="p-2">
