@@ -1,13 +1,14 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
+import AttendanceLayout from './layout/attendanceLayout/Index';
 import MainLayout from './layout/mainLayout/Index';
 import RoomLayout from './layout/roomLayout/Index';
 import AccountsPage from './pages/accounts/Index';
+import In from './pages/attendance/in/In';
 import AttendancePage from './pages/attendance/Index';
 import ComplaintsPage from './pages/home/complaints/ComplaintsPage';
 import HomePage from './pages/home/Index';
-import MealPage from './pages/home/meals/MealPage';
 import StockPage from './pages/home/stock/StockPage';
 import StudentPage from './pages/home/student/StudentPage';
 import UserPage from './pages/home/users/UserPage';
@@ -31,7 +32,7 @@ const App = () => {
         { path: '/students', element: <StudentPage /> },
         { path: '/complaints', element: <ComplaintsPage /> },
         { path: '/stock', element: <StockPage /> },
-        { path: '/meal', element: <MealPage /> },
+        { path: '/assigned', element: <AssignedPage /> },
         { path: '/users', element: <UserPage /> }
       ],
     },
@@ -46,6 +47,21 @@ const App = () => {
         { path: 'furniture', element: <FurniturePage /> },
       ],
     },
+    // AttendancLayout
+    {
+      path: '/attendance',
+      element: <AttendanceLayout />,
+      children: [
+        {
+          path: '/attendance',
+          element: <AttendancePage />
+        },
+        {
+          path: 'in',
+          element: <In />
+        }
+      ]
+    }
   ]);
 
   return (

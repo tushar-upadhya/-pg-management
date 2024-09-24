@@ -9,7 +9,7 @@ const RoomLayout: React.FC = () => {
   { icon: <ChartNoAxesColumn />, label: 'Occupancy', path: '/rooms' },
   { icon: <UserRound />, label: 'Hotels', path: 'hotels' },
   { icon: <Package />, label: 'Furniture', path: 'furniture' },
-  { icon: <Utensils />, label: 'Meal', path: 'meal' },
+  { icon: <Utensils />, label: 'Assigned', path: 'assigned' },
  ];
 
  return (
