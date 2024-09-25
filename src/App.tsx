@@ -7,6 +7,8 @@ import RoomLayout from './layout/roomLayout/Index';
 import AccountsPage from './pages/accounts/Index';
 import In from './pages/attendance/in/In';
 import AttendancePage from './pages/attendance/Index';
+import LeavePage from './pages/attendance/leave/LeavePage';
+import Out from './pages/attendance/out/Out';
 import ComplaintsPage from './pages/home/complaints/ComplaintsPage';
 import HomePage from './pages/home/Index';
 import StockPage from './pages/home/stock/StockPage';
@@ -59,6 +61,14 @@ const App = () => {
         {
           path: 'in',
           element: <In />
+        },
+        {
+          path: 'out',
+          element: <Out />
+        },
+        {
+          path: 'leave',
+          element: <LeavePage />
         }
       ]
     }

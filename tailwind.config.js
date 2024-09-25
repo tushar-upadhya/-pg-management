@@ -21,6 +21,14 @@ export default {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px'
+    }, keyframes: {
+      blink: {
+        '0%, 100%': { opacity: '1' },
+        '50%': { opacity: '0' },
+      },
+    },
+    animation: {
+      blink: 'blink 2s infinite',
     },
 
     extend: {
