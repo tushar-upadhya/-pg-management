@@ -2,7 +2,6 @@ import Complaint from "@/components/Complaint/Complaint";
 import EmergencyButton from "@/components/EmergencyButton/EmergencyButton";
 import FeesCollection from "@/components/fees-Collection/FeesCollection";
 import StudentUpdateComponent from "@/components/table/StudentUpdateComponent";
-import { homeTableType } from "@/lib/datatable/HomeTable";
 import { ScrollArea } from "@radix-ui/themes";
 import { ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -20,15 +19,9 @@ const fetchData = async () => {
 
 const HomePage = () => {
  const [data, setData] = useState<{ browser: string; visitors: number; fill: string }[]>([]);
- const [inventory, setInventory] = useState<homeTableType[]>([]);
+ // const [setInventory] = useState<homeTableType[]>([]);
 
- // Load initial data for the data table
- useEffect(() => {
-  const dummyData: homeTableType[] = [
-   // Sample data goes here
-  ];
-  setInventory(dummyData);
- }, []);
+
 
  // Load pie chart data
  useEffect(() => {
