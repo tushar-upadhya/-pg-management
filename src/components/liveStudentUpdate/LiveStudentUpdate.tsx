@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bed, Building2, Download, User, Watch } from "lucide-react";
+import { Bed, Building2, User, Watch } from "lucide-react";
 import { FC } from "react";
 import BlinkingDot from "../blinkingDot/BlinkingDot";
 
@@ -29,12 +28,12 @@ const LiveStudentUpdate: FC<LiveStudentUpdateProps> = ({ students }) => {
      </span>
     </div>
 
-    <div className="ml-auto">
+    {/* <CardTitle className="ml-auto -mt-80">
      <Button className="bg-[#1f8e44] hover:bg-[#1c7c3d] px-4 py-2">
       <Download className="mr-2 h-4 w-4" />
       Export Data
      </Button>
-    </div>
+    </CardTitle> */}
    </CardHeader>
 
    {/* Student Update List */}
@@ -84,4 +83,3 @@ const LiveStudentUpdate: FC<LiveStudentUpdateProps> = ({ students }) => {
 };
 
 export default LiveStudentUpdate;
-

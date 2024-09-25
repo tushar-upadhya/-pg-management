@@ -95,7 +95,7 @@ const ChartWithTables: React.FC<HostelDashboardProps> = ({
      ))}
 
      {/*  */}
-     <div className="col-span-2 sm:w-[31rem] md:col-span-3 bg-[#141414] p-4 rounded-lg">
+     <div className="col-span-2 sm:w-[31.2rem] md:col-span-3 bg-[#141414] p-4 rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
        {[
         { label: "Total Students", value: totalStudents },
@@ -113,7 +113,7 @@ const ChartWithTables: React.FC<HostelDashboardProps> = ({
      </div>
 
      {/* Second row - Total Students and distribution */}
-     <div className="col-span-2 sm:w-[62rem] md:col-span-3 bg-[#141414] p-4 rounded-lg">
+     <div className="col-span-2 sm:w-[61rem] md:col-span-3 bg-[#141414] p-4 rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
        {[
         { label: "Total Students", value: totalStudents },
