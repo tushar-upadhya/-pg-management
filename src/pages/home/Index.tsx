@@ -1,6 +1,7 @@
 import Complaint from "@/components/Complaint/Complaint";
 import EmergencyButton from "@/components/EmergencyButton/EmergencyButton";
 import FeesCollection from "@/components/fees-Collection/FeesCollection";
+import StudentUpdateComponent from "@/components/table/StudentUpdateComponent";
 import { homeTableType } from "@/lib/datatable/HomeTable";
 import { ScrollArea } from "@radix-ui/themes";
 import { ExternalLink } from "lucide-react";
@@ -67,11 +68,10 @@ const HomePage = () => {
 
  return (
   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-4 md:p-6 text-white">
-
    {/* Chart Section */}
-   <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 p-2 lg:grid-cols-3 gap-4 rounded-lg">
+   <div className="lg:col-span-2 grid h-[60rem] sm:h-[20rem] bg-[#202020] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-6 rounded-lg">
     {pieChartsData.map((chart, index) => (
-     <div key={index} className="p-2 bg-[#111111] rounded-lg h-[20rem] ">
+     <div key={index} className="p-2 bg-[#111111] shadow-none rounded-lg flex flex-col">
       <PieChart
        icon={chart.icon}
        data={data}
@@ -82,16 +82,11 @@ const HomePage = () => {
    </div>
 
    {/* Student Updates and Emergency Section */}
-   <div className="lg:col-span-1 mt-4 space-y-6">
-    <div className="p-4 bg-[#111111] rounded-lg h-[28rem]">
-     <h2 className="text-xl font-semibold mb-4">Student Update</h2>
-     <ScrollArea type="always" scrollbars="vertical" className="h-64">
-      {inventory.map((item, index) => (
-       <div key={index} className="flex items-center justify-between py-2">
-        <span>{item.names}</span>
-        <span>{item.entryTime}</span>
-       </div>
-      ))}
+   <div className="lg:col-span-1 space-y-5">
+    <div className="p-4 rounded-lg h-[28rem] -mt-4 sm:-mt-4">
+     {/* <h2 className="text-xl font-semibold mb-4">Student Update</h2> */}
+     <ScrollArea type="always" scrollbars="vertical" className="h-[27rem]">
+      <StudentUpdateComponent />
      </ScrollArea>
     </div>
 
@@ -100,11 +95,11 @@ const HomePage = () => {
     </div>
    </div>
 
-   <div className="lg:col-span-2 mt-8 md:mt-16 lg:-mt-[32rem] rounded-lg">
+   <div className="lg:col-span-2 mt-16 md:-mt-[34rem] rounded-lg">
     <FeesCollection />
    </div>
 
-   <div className="lg:col-span-2 p-4 mt-8 md:mt-16 lg:-mt-[12rem] rounded-lg">
+   <div className="lg:col-span-2 p-4 w-[auto] sm:w-[54.5rem] -ml-4 mt-20 md:-mt-[15.5rem] rounded-lg">
     <Complaint />
    </div>
   </div>

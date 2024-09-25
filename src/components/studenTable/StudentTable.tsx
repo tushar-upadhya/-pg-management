@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { students } from "@/lib/data/studentData"; // Ensure this path is correct
+import { students } from "@/lib/data/studentData";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import * as ScrollArea from "@radix-ui/react-scroll-area";
+import { ScrollArea } from '@radix-ui/themes';
 import { ExternalLink, Eye } from "lucide-react";
 import React, { useState } from "react";
 import StudentListDialog from "../Modal/StudentListDialog/StudentListDialog";
@@ -27,13 +27,13 @@ const StudentTable: React.FC = () => {
    </div>
 
    {/* Student List */}
-   <ScrollArea.Root className="h-[30rem] overflow-hidden rounded-lg">
-    <ScrollArea.Viewport className="w-full h-full">
+   <ScrollArea type="always" scrollbars="vertical" style={{ height: 468 }}>
+    <div className="w-full h-full">
      <div className="space-y-4">
       {students.map((student, index) => (
        <Card
         key={index}
-        className="bg-[#111111] p-4 flex [border:none] [outline:none]  items-center justify-between text-white rounded-lg"
+        className="bg-[#111111] p-4 flex [border:none] [outline:none] items-center justify-between text-white rounded-lg"
        >
         <div className="flex items-center space-x-4">
          {/* Avatar */}
@@ -56,8 +56,8 @@ const StudentTable: React.FC = () => {
        </Card>
       ))}
      </div>
-    </ScrollArea.Viewport>
-   </ScrollArea.Root>
+    </div>
+   </ScrollArea>
 
    <StudentListDialog
     students={students}

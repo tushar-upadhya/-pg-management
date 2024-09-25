@@ -7,6 +7,7 @@ import {
 import React from "react";
 import { Label, Pie, PieChart } from "recharts";
 import FurnitureList from "../furnitureList/FurnitureList";
+import { Button } from "../ui/button";
 
 interface HostelDashboardProps {
  title: string;
@@ -19,6 +20,7 @@ interface HostelDashboardProps {
  inHostel: number;
  outsideHostel: number;
  furnitureList: { item: string; count: number }[];
+ address: string;
 }
 
 const ChartWithTables: React.FC<HostelDashboardProps> = ({
@@ -30,6 +32,7 @@ const ChartWithTables: React.FC<HostelDashboardProps> = ({
  totalStudents,
  inHostel,
  outsideHostel,
+ address
 }) => {
  const chartData = [
   { name: "Occupied", value: occupancyRate },
@@ -42,15 +45,18 @@ const ChartWithTables: React.FC<HostelDashboardProps> = ({
     <CardTitle className="text-xl font-semibold self-start">{hostelName}</CardTitle>
    </CardHeader>
 
-   <CardContent className="flex flex-col items-center md:flex-row justify-between space-y-2 md:space-y-0 md:space-x-4">
+   <CardContent className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4">
+
     {/* Chart Section */}
     <div className="flex flex-col items-center md:w-1/4">
-     <PieChart width={160} height={160}>
+     <span>{address}</span>
+     {/* first chart */}
+     <PieChart width={250} height={250}>
       <Pie
        data={chartData}
        dataKey="value"
-       innerRadius={50}
-       outerRadius={70}
+       innerRadius={70}
+       outerRadius={90}
        fill="#00E0FF"
        stroke="none"
       >
@@ -61,10 +67,16 @@ const ChartWithTables: React.FC<HostelDashboardProps> = ({
        />
       </Pie>
      </PieChart>
+     {/* button */}
+     <div className="w-full mt-2 flex justify-center">
+      <Button variant={'default'} className="bg-[#00868D] w-48">
+       + Add Hostel
+      </Button>
+     </div>
     </div>
 
     {/* Info Section */}
-    <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+    <div className="grid  grid-cols-2 md:grid-cols-3 gap-4 text-center">
      {/* Cards for Room Info */}
      {[
       { label: "Total Rooms", value: totalRooms },
@@ -82,8 +94,8 @@ const ChartWithTables: React.FC<HostelDashboardProps> = ({
       </div>
      ))}
 
-     {/* Second row - Total Students and distribution */}
-     <div className="col-span-2 md:col-span-3 mt-4 bg-[#141414] p-4 rounded-lg">
+     {/*  */}
+     <div className="col-span-2 sm:w-[31rem] md:col-span-3 bg-[#141414] p-4 rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
        {[
         { label: "Total Students", value: totalStudents },
@@ -99,11 +111,55 @@ const ChartWithTables: React.FC<HostelDashboardProps> = ({
        ))}
       </div>
      </div>
+
+     {/* Second row - Total Students and distribution */}
+     <div className="col-span-2 sm:w-[62rem] md:col-span-3 bg-[#141414] p-4 rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+       {[
+        { label: "Total Students", value: totalStudents },
+        { label: "In Hostel", value: inHostel, isHighlight: true },
+        { label: "Outside Hostel", value: outsideHostel },
+       ].map((item, index) => (
+        <div key={index} className="text-center">
+         <p className={`font-bold text-xl ${item.isHighlight ? 'text-blue-400' : ''}`}>
+          {item.value}
+         </p>
+         <p className="text-sm text-gray-400">{item.label}</p>
+        </div>
+       ))}
+      </div>
+     </div>
+
+    </div>
+
+    {/* second chart */}
+    <div className="flex flex-col items-center md:w-1/4">
+     <span className="text-lg font-semibold">Collection</span>
+     <div className="-mt-4">
+      <PieChart width={250} height={250}>
+       <Pie
+        data={chartData}
+        dataKey="value"
+        innerRadius={70}
+        outerRadius={90}
+        fill="#00E0FF"
+        stroke="none"
+       >
+        <Label
+         value={`${occupancyRate}%`}
+         position="center"
+         className="text-white font-bold text-lg"
+        />
+       </Pie>
+      </PieChart>
+     </div>
     </div>
 
     {/* Right section - Furniture List */}
-    <div className="flex justify-center items-start sm:justify-center md:w-1/4 mt-4 md:mt-0">
-     <FurnitureList />
+    <div className="flex justify-center items-start sm:justify-center md:w-1/4 md:mt-0">
+     <div className="w-full">
+      <FurnitureList />
+     </div>
     </div>
    </CardContent>
   </Card>

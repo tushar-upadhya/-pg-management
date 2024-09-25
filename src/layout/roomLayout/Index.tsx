@@ -8,8 +8,9 @@ const RoomLayout: React.FC = () => {
  const roomMenuItems = [
   { icon: <ChartNoAxesColumn />, label: 'Occupancy', path: '/rooms' },
   { icon: <UserRound />, label: 'Hotels', path: 'hotels' },
-  { icon: <Package />, label: 'Furniture', path: 'furniture' },
+  { icon: <Package />, label: 'room', path: 'room' },
   { icon: <Utensils />, label: 'Assigned', path: 'assigned' },
+  { icon: <Utensils />, label: 'Furniture', path: 'furniture' },
  ];
 
  return (

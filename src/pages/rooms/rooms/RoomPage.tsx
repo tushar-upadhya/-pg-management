@@ -1,7 +1,9 @@
 import RemoveButton from "@/components/button/RemoveButton";
-import ChartWithTables from "@/components/ChartWithTables/chartWithTables";
+import FurnitureState from "@/components/furniture/FurnitureState";
+import RoomState from "@/components/roomstate/RoomState";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import React from "react";
 
 const hostelData = {
  title: "Hotel 1",
@@ -20,10 +22,10 @@ const hostelData = {
   { item: "Refrigerator", count: 6 },
   { item: "Kettle", count: 12 },
  ],
- address: "Plot number 206, Tihri Nagar, Main Hawai Sadak, Jaipur - Rajasthan - 302021 India", // New address
+ address: "Plot number 206, Tihri Nagar, Main Hawai Sadak, Jaipur - Rajasthan - 302021 India",
 };
 
-const HostelsPage: React.FC = () => {
+const RoomPage: React.FC = () => {
  return (
   <div className='p-4'>
    {/* Search Bar */}
@@ -39,19 +41,24 @@ const HostelsPage: React.FC = () => {
 
    {/* Buttons */}
    <div className="flex justify-center mb-4 sm:justify-start">
-    <div className="sm:flex gap-8 ">
-     <RemoveButton />
+    <div className="sm:flex gap-8">
      <RemoveButton />
     </div>
    </div>
 
-   {/* Chart with Tables */}
-   <div className='grid w-full h-full grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4'>
-    <ChartWithTables {...hostelData} />
-    <ChartWithTables {...hostelData} />
+   {/* Room State */}
+   <div className="mb-8">
+    <RoomState {...hostelData} />
    </div>
+
+   {/* Furniture State */}
+   <div className="space-y-4">
+    <FurnitureState {...hostelData} />
+    <FurnitureState {...hostelData} />
+   </div>
+
   </div>
  );
 };
 
-export default HostelsPage;
+export default RoomPage;

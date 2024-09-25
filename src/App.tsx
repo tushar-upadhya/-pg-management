@@ -19,6 +19,7 @@ import AssignedPage from './pages/rooms/Assigned/AssignedPage';
 import FurniturePage from './pages/rooms/Furniture/FurniturePage';
 import HostelsPage from './pages/rooms/hostels/HostelsPage';
 import RoomsPage from './pages/rooms/Index';
+import RoomPage from './pages/rooms/rooms/RoomPage';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -47,6 +48,7 @@ const App = () => {
         { path: 'hotels', element: <HostelsPage /> },
         { path: 'assigned', element: <AssignedPage /> },
         { path: 'furniture', element: <FurniturePage /> },
+        { path: 'room', element: <RoomPage /> },
       ],
     },
     // AttendancLayout
@@ -72,6 +74,7 @@ const App = () => {
         }
       ]
     }
+    // maintenanceLayout
   ]);
 
   return (

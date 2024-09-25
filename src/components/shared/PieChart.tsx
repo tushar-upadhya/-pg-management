@@ -6,7 +6,6 @@ import { Label, Pie, PieChart as RechartsPieChart } from "recharts"
 import {
  Card,
  CardContent,
- // CardFooter,
  CardHeader,
  CardTitle
 } from "../../components/ui/card"
@@ -23,8 +22,7 @@ interface PieChartProps {
  data: { browser: string; visitors: number; fill: string }[];
  title?: string;
  icon?: React.ReactNode;
- className?: string
- // footerData?: { percentage: number; description: string };
+ className?: string;
 }
 
 const chartConfig = {
@@ -59,16 +57,13 @@ export function PieChart({ data, title, icon, className }: PieChartProps) {
  }, [data])
 
  return (
-  <Card className={`{flex flex-col bg-inherit text-white border-none ${className}`}>
+  <Card className={`flex flex-col bg-transparent text-white border-none ${className}`}>
    <CardHeader className="items-center pb-0">
     <CardTitle className="text-lg md:text-xl lg:text-2xl">{title}
      <span className="inline-block ml-3.5 cursor-pointer">
       {icon && <span className="text-muted-foreground">{icon}</span>}
      </span>
     </CardTitle>
-    {/* <CardDescription className="text-sm md:text-base lg:text-lg">
-     January - June 2024
-    </CardDescription> */}
    </CardHeader>
    <CardContent className="flex-1 pb-0">
     <ChartContainer
@@ -85,6 +80,7 @@ export function PieChart({ data, title, icon, className }: PieChartProps) {
        dataKey="visitors"
        nameKey="browser"
        innerRadius={60}
+       outerRadius={80}  // Adjust outerRadius for better visibility
        strokeWidth={5}
       >
        <Label
@@ -100,7 +96,7 @@ export function PieChart({ data, title, icon, className }: PieChartProps) {
             <tspan
              x={viewBox.cx}
              y={viewBox.cy}
-             className="fill-foreground text-2xl md:text-3xl lg:text-4xl font-bold"
+             className="fill-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold"
             >
              {totalVisitors.toLocaleString()}
             </tspan>
@@ -120,14 +116,6 @@ export function PieChart({ data, title, icon, className }: PieChartProps) {
      </RechartsPieChart>
     </ChartContainer>
    </CardContent>
-   {/* <CardFooter className="flex-col gap-2 text-sm">
-    <div className="flex items-center gap-2 font-medium leading-none">
-     Trending up by {footerData.percentage}% this month <TrendingUp className="h-4 w-4" />
-    </div>
-    <div className="leading-none text-muted-foreground">
-     {footerData.description}
-    </div>
-   </CardFooter> */}
   </Card>
  )
 }
