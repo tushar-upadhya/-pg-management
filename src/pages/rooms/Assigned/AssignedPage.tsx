@@ -1,7 +1,12 @@
 import RoomGrid from '@/components/roomGrid/RoomGrid';
 import React from 'react';
 
-const roomsData = [
+interface Room {
+ number: number;
+ status: "occupied" | "vacant" | "highlight";
+};
+
+const roomsData: Room[] = [
  { number: 101, status: 'occupied' },
  { number: 102, status: 'occupied' },
  { number: 103, status: 'occupied' },

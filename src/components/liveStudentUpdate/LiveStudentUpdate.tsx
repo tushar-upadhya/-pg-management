@@ -57,7 +57,7 @@ const LiveStudentUpdate: FC<LiveStudentUpdateProps> = ({ students }) => {
       {/* Middle Section */}
       <div className="flex flex-wrap justify-between flex-1 items-center text-gray-400 text-sm space-y-2 md:space-y-0 md:flex-nowrap">
        {/* Status */}
-       <div className={`w-full md:w-[10%] font-bold ${student.status === 'OUT' ? 'text-yellow-400' : 'text-blue-400'}`}>
+       <div className={`w-full md:w-[10%] font-bold ${student.status === 'E' ? 'text-yellow-400' : 'text-blue-400'}`}>
         {student.status}
        </div>
        {/* Time */}

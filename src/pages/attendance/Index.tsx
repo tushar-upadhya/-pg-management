@@ -1,14 +1,14 @@
 import LiveStudentUpdate from "@/components/liveStudentUpdate/LiveStudentUpdate";
 
 const data = [
- { name: "Ramakant Sharma", status: "IN", time: "12:30", room: "101", hostel: "H1" },
- { name: "Ravi Verma", status: "OUT", time: "13:00", room: "102", hostel: "H2" },
- { name: "Ramakant Sharma", status: "IN", time: "12:30", room: "101", hostel: "H1" },
- { name: "Ravi Verma", status: "OUT", time: "13:00", room: "102", hostel: "H2" },
- { name: "Ramakant Sharma", status: "IN", time: "12:30", room: "101", hostel: "H1" },
- { name: "Ravi Verma", status: "OUT", time: "13:00", room: "102", hostel: "H2" },
- { name: "Ramakant Sharma", status: "IN", time: "12:30", room: "101", hostel: "H1" },
- { name: "Ravi Verma", status: "OUT", time: "13:00", room: "102", hostel: "H2" },
+ { name: "Ramakant Sharma", status: "3", time: "12:30", room: "101", hostel: "H1" },
+ { name: "Ravi Verma", status: "E", time: "13:00", room: "102", hostel: "H2" },
+ { name: "Ramakant Sharma", status: "3", time: "12:30", room: "101", hostel: "H1" },
+ { name: "Ravi Verma", status: "E", time: "13:00", room: "102", hostel: "H2" },
+ { name: "Ramakant Sharma", status: "3", time: "12:30", room: "101", hostel: "H1" },
+ { name: "Ravi Verma", status: "E", time: "13:00", room: "102", hostel: "H2" },
+ { name: "Ramakant Sharma", status: "3", time: "12:30", room: "101", hostel: "H1" },
+ { name: "Ravi Verma", status: "E", time: "13:00", room: "102", hostel: "H2" },
 ];
 
 const AttendancePage = () => {
