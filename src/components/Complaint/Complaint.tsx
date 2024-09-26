@@ -18,7 +18,7 @@ const Complaint: React.FC = () => {
 
    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     {/* Total Complaints */}
-    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
+    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center h-full">
      <h4 className="text-white text-sm mb-2">Total Complaints</h4>
      <p className="text-xl font-semibold" style={{ color: complaintsData.colors.total }}>
       {complaintsData.total}
@@ -26,7 +26,7 @@ const Complaint: React.FC = () => {
     </div>
 
     {/* Resolved Complaints */}
-    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
+    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center h-full">
      <h4 className="text-white text-sm mb-2">Resolved Complaints</h4>
      <p className="text-xl font-semibold" style={{ color: complaintsData.colors.resolved }}>
       {complaintsData.resolved}
@@ -34,7 +34,7 @@ const Complaint: React.FC = () => {
     </div>
 
     {/* Open Complaints */}
-    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center">
+    <div className="bg-gray-800 p-4 rounded-md flex flex-col items-start justify-center h-full">
      <h4 className="text-white text-sm mb-2">Open Complaints</h4>
      <p className="text-xl font-semibold" style={{ color: complaintsData.colors.open }}>
       {complaintsData.open}

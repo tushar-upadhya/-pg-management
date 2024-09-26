@@ -28,6 +28,7 @@ const StudentPage: React.FC = () => {
       hoverBorderColor="#00FFF6"
       showDialog={false}
      />
+
      <div className="mt-2 md:mt-8">
       <AddButton
        onClick={() => console.log("Button clicked!")}

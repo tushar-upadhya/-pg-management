@@ -42,7 +42,7 @@ const AddButton: React.FC<AddButtonProps> = ({
  };
 
  return (
-  <div className="w-full max-w-md mx-auto p-2">
+  <div className="w-full p-2 flex justify-center">
    <Button
     variant={variant}
     style={{
@@ -50,7 +50,7 @@ const AddButton: React.FC<AddButtonProps> = ({
      color: textColor || "black",
      borderColor: borderColor || "transparent",
     }}
-    className={`border text-lg w-full h-12 rounded-lg`}
+    className={`border text-lg w-full h-12 rounded-lg max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg`}
     onMouseEnter={(e) => {
      e.currentTarget.style.backgroundColor = hoverBgColor || "";
      e.currentTarget.style.color = hoverTextColor || "";
@@ -68,7 +68,7 @@ const AddButton: React.FC<AddButtonProps> = ({
 
    {showDialog && isDialogOpen && (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-     <div className="p-6 rounded-lg shadow-lg max-w-md w-full">
+     <div className="p-6 rounded-lg shadow-lg max-w-xs sm:max-w-sm md:max-w-md w-full">
       {React.cloneElement(dialog, { onClose: closeDialog })}
      </div>
     </div>

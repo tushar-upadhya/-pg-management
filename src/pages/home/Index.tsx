@@ -19,11 +19,7 @@ const fetchData = async () => {
 
 const HomePage = () => {
  const [data, setData] = useState<{ browser: string; visitors: number; fill: string }[]>([]);
- // const [setInventory] = useState<homeTableType[]>([]);
 
-
-
- // Load pie chart data
  useEffect(() => {
   const loadData = async () => {
    const fetchedData = await fetchData();

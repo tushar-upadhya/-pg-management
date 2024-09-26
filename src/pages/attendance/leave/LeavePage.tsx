@@ -20,11 +20,11 @@ const LeavePage: React.FC = () => {
     <div className="w-full md:w-[23rem] space-y-8 md:ml-auto sm:mt-4 md:mt-0">
      <AddButton
       onClick={() => setIsDialogOpen(true)}
-      label="+ Add Hostel"
-      bgColor="#00868D"
-      textColor="white"
-      borderColor="#00868D"
-      hoverBgColor="#00866D"
+      label="Grant Leave"
+      bgColor=""
+      textColor="#00FFF56"
+      borderColor="#00FFF5"
+      hoverBgColor="#00FFF5"
       hoverTextColor="white"
       hoverBorderColor="blue-700"
       showDialog={true}
