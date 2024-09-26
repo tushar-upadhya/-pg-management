@@ -34,6 +34,7 @@ const ChartWithTables: React.FC<HostelDashboardProps> = ({
  outsideHostel,
  address
 }) => {
+
  const chartData = [
   { name: "Occupied", value: occupancyRate },
   { name: "Vacant", value: 100 - occupancyRate },

@@ -1,7 +1,9 @@
 import AddButton from "@/components/button/AddButton";
 import ChartWithTables from "@/components/ChartWithTables/chartWithTables";
+import AddHostelDialog from "@/components/Modal/addHostelDialog/AddHostelDialog";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import { useState } from "react";
 
 const hostelData = {
  title: "Hotel 1",
@@ -20,10 +22,12 @@ const hostelData = {
   { item: "Refrigerator", count: 6 },
   { item: "Kettle", count: 12 },
  ],
- address: "Plot number 206, Tihri Nagar, Main Hawai Sadak, Jaipur - Rajasthan - 302021 India", // New address
+ address: "Plot number 206, Tihri Nagar, Main Hawai Sadak, Jaipur - Rajasthan - 302021 India",
 };
 
 const HostelsPage: React.FC = () => {
+ const [isDialogOpen, setIsDialogOpen] = useState(false);
+
  return (
   <div className='p-4'>
    {/* Search Bar */}
@@ -41,7 +45,7 @@ const HostelsPage: React.FC = () => {
    <div className="flex justify-center mb-4 sm:justify-start">
     <div className="sm:flex gap-8 ">
      <AddButton
-      onClick={() => console.log("Button clicked!")}
+      onClick={() => console.log("Total Hostel button clicked!")}
       label="Total Hostel"
       bgColor="#141414"
       textColor="white"
@@ -52,15 +56,18 @@ const HostelsPage: React.FC = () => {
       showDialog={false}
      />
      <AddButton
-      onClick={() => console.log("Button clicked!")}
-      label="+ Add Furniture"
+      onClick={() => setIsDialogOpen(true)}
+      label="+ Add Hostel"
       bgColor="#00868D"
       textColor="white"
       borderColor="#00868D"
       hoverBgColor="#00866D"
       hoverTextColor="white"
       hoverBorderColor="blue-700"
-      showDialog={false}
+      showDialog={true}
+      dialog={
+       <AddHostelDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+      }
      />
     </div>
    </div>

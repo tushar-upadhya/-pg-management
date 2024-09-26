@@ -1,9 +1,10 @@
 import AddButton from "@/components/button/AddButton";
 import FurnitureState from "@/components/furniture/FurnitureState";
+import AddRoomDialog from "@/components/Modal/addroom/AddRoomDialog";
 import RoomState from "@/components/roomstate/RoomState";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 const hostelData = {
  title: "Hotel 1",
@@ -26,6 +27,8 @@ const hostelData = {
 };
 
 const RoomPage: React.FC = () => {
+ const [isDialogOpen, setIsDialogOpen] = useState(false);
+
  return (
   <div className='p-4'>
    {/* Search Bar */}
@@ -55,15 +58,18 @@ const RoomPage: React.FC = () => {
      />
 
      <AddButton
-      onClick={() => console.log("Button clicked!")}
-      label="+ Add Rooms"
+      onClick={() => setIsDialogOpen(true)}
+      label="+ Add Hostel"
       bgColor="#00868D"
       textColor="white"
       borderColor="#00868D"
-      hoverBgColor="#00868D"
+      hoverBgColor="#00866D"
       hoverTextColor="white"
       hoverBorderColor="blue-700"
-      showDialog={false}
+      showDialog={true}
+      dialog={
+       <AddRoomDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+      }
      />
     </div>
    </div>

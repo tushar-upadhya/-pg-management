@@ -1,13 +1,12 @@
 import AddButton from "@/components/button/AddButton";
 import FeesCollection from "@/components/fees-Collection/FeesCollection";
-import Modal from "@/components/Modal/addStudent/Modal";
+import LeaveDailog from "@/components/Modal/leaveDailog/LeaveDailog";
 import StudentsOnLeave from "@/components/studentsOnLeave/StudentsOnLeave";
 import { useState } from "react";
 
 const LeavePage: React.FC = () => {
- const [isModalOpen, setIsModalOpen] = useState(false);
- const openModal = () => setIsModalOpen(true);
- const closeModal = () => setIsModalOpen(false);
+ const [isDialogOpen, setIsDialogOpen] = useState(false);
+
 
  return (
   <div className="flex flex-col p-4 md:p-8 gap-4">
@@ -19,8 +18,20 @@ const LeavePage: React.FC = () => {
 
     {/* Button */}
     <div className="w-full md:w-[23rem] space-y-8 md:ml-auto sm:mt-4 md:mt-0">
-     <AddButton onClick={openModal} />
-     <AddButton onClick={openModal} />
+     <AddButton
+      onClick={() => setIsDialogOpen(true)}
+      label="+ Add Hostel"
+      bgColor="#00868D"
+      textColor="white"
+      borderColor="#00868D"
+      hoverBgColor="#00866D"
+      hoverTextColor="white"
+      hoverBorderColor="blue-700"
+      showDialog={true}
+      dialog={
+       <LeaveDailog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+      }
+     />
 
     </div>
    </div>
@@ -29,8 +40,7 @@ const LeavePage: React.FC = () => {
     <StudentsOnLeave />
    </div>
 
-   {/* Modal */}
-   <Modal isOpen={isModalOpen} onClose={closeModal} />
+
   </div>
  );
 };

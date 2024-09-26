@@ -12,7 +12,7 @@ interface AddButtonProps {
  hoverTextColor?: string;
  hoverBorderColor?: string;
  showDialog?: boolean;
- dialogContent?: JSX.Element;
+ dialog?: JSX.Element;
 }
 
 const AddButton: React.FC<AddButtonProps> = ({
@@ -26,7 +26,7 @@ const AddButton: React.FC<AddButtonProps> = ({
  hoverTextColor = "",
  hoverBorderColor = "",
  showDialog = false,
- dialogContent,
+ dialog,
 }) => {
  const [isDialogOpen, setDialogOpen] = useState(false);
 
@@ -66,17 +66,10 @@ const AddButton: React.FC<AddButtonProps> = ({
     {label}
    </Button>
 
-   {/* Dialog */}
    {showDialog && isDialogOpen && (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
      <div className="p-6 rounded-lg shadow-lg max-w-md w-full">
-      <div>{dialogContent}</div>
-      <button
-       onClick={closeDialog}
-       className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg"
-      >
-       Close
-      </button>
+      {React.cloneElement(dialog, { onClose: closeDialog })}
      </div>
     </div>
    )}

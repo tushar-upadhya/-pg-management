@@ -5,8 +5,8 @@ import {
  CardTitle,
 } from "@/components/ui/card";
 import React from "react";
-import { Label, Pie, PieChart } from "recharts";
 import FurnitureList from "../furnitureList/FurnitureList";
+import { PieChart } from "../shared/PieChart";
 
 interface HostelDashboardProps {
  title: string;
@@ -23,7 +23,6 @@ interface HostelDashboardProps {
 
 const HostelDashboard: React.FC<HostelDashboardProps> = ({
  hostelName,
- occupancyRate,
  totalRooms,
  occupiedRooms,
  floors,
@@ -32,8 +31,7 @@ const HostelDashboard: React.FC<HostelDashboardProps> = ({
  outsideHostel,
 }) => {
  const chartData = [
-  { name: "Occupied", value: occupancyRate },
-  { name: "Vacant", value: 100 - occupancyRate },
+  { browser: "Occupied", visitors: occupiedRooms, fill: "#00FFF5" },
  ];
 
  return (
@@ -42,25 +40,10 @@ const HostelDashboard: React.FC<HostelDashboardProps> = ({
     <CardTitle className="text-xl font-semibold self-start">{hostelName}</CardTitle>
    </CardHeader>
 
-   <CardContent className="flex flex-col items-center md:flex-row justify-between space-y-2 md:space-y-0 md:space-x-4">
-    {/* Chart Section */}
+   <CardContent className="flex flex-col items-center md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4">
+    {/* Chart Section using the new PieChart */}
     <div className="flex flex-col items-center md:w-1/4">
-     <PieChart width={250} height={250}>
-      <Pie
-       data={chartData}
-       dataKey="value"
-       innerRadius={70}
-       outerRadius={90}
-       fill="#00E0FF"
-       stroke="none"
-      >
-       <Label
-        value={`${occupancyRate}%`}
-        position="center"
-        className="text-white font-bold text-lg"
-       />
-      </Pie>
-     </PieChart>
+     <PieChart data={chartData} title="" className="w-full h-auto" />
     </div>
 
     {/* Info Section */}
@@ -70,9 +53,9 @@ const HostelDashboard: React.FC<HostelDashboardProps> = ({
       { label: "Total Rooms", value: totalRooms },
       { label: "Occupied", value: occupiedRooms, isHighlight: true },
       { label: "Floors", value: floors },
-      { label: "Total Rooms", value: totalRooms },
-      { label: "Occupied", value: occupiedRooms, isHighlight: true },
-      { label: "Floors", value: floors },
+      { label: "Total Students", value: totalStudents },
+      { label: "In Hostel", value: inHostel, isHighlight: true },
+      { label: "Outside Hostel", value: outsideHostel },
      ].map((item, index) => (
       <div key={index} className="bg-[#141414] p-4 rounded-lg">
        <p className={`font-bold text-xl ${item.isHighlight ? 'text-yellow-400' : ''}`}>
