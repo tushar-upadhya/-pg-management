@@ -1,4 +1,4 @@
-import RemoveButton from "@/components/button/RemoveButton";
+import AddButton from "@/components/button/AddButton";
 import FurnitureState from "@/components/furniture/FurnitureState";
 import RoomState from "@/components/roomstate/RoomState";
 import { Input } from "@/components/ui/input";
@@ -42,7 +42,29 @@ const RoomPage: React.FC = () => {
    {/* Buttons */}
    <div className="flex justify-center mb-4 sm:justify-start">
     <div className="sm:flex gap-8">
-     <RemoveButton />
+     <AddButton
+      onClick={() => console.log("Button clicked!")}
+      label="Total Hostel"
+      bgColor="#141414"
+      textColor="white"
+      borderColor="#141414"
+      hoverBgColor="#141414"
+      hoverTextColor="white"
+      hoverBorderColor="blue-700"
+      showDialog={false}
+     />
+
+     <AddButton
+      onClick={() => console.log("Button clicked!")}
+      label="+ Add Rooms"
+      bgColor="#00868D"
+      textColor="white"
+      borderColor="#00868D"
+      hoverBgColor="#00868D"
+      hoverTextColor="white"
+      hoverBorderColor="blue-700"
+      showDialog={false}
+     />
     </div>
    </div>
 

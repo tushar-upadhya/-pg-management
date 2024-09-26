@@ -1,4 +1,4 @@
-import RemoveButton from "@/components/button/RemoveButton";
+import AddButton from "@/components/button/AddButton";
 import ChartWithTables from "@/components/ChartWithTables/chartWithTables";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
@@ -40,8 +40,28 @@ const HostelsPage: React.FC = () => {
    {/* Buttons */}
    <div className="flex justify-center mb-4 sm:justify-start">
     <div className="sm:flex gap-8 ">
-     <RemoveButton />
-     <RemoveButton />
+     <AddButton
+      onClick={() => console.log("Button clicked!")}
+      label="Total Hostel"
+      bgColor="#141414"
+      textColor="white"
+      borderColor=""
+      hoverBgColor="blue-700"
+      hoverTextColor="white"
+      hoverBorderColor="blue-700"
+      showDialog={false}
+     />
+     <AddButton
+      onClick={() => console.log("Button clicked!")}
+      label="+ Add Furniture"
+      bgColor="#00868D"
+      textColor="white"
+      borderColor="#00868D"
+      hoverBgColor="#00866D"
+      hoverTextColor="white"
+      hoverBorderColor="blue-700"
+      showDialog={false}
+     />
     </div>
    </div>
 

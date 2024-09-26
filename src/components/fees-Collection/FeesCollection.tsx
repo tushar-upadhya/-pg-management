@@ -43,6 +43,7 @@ const FeesCollection: React.FC = () => {
 
  return (
   <div className="flex flex-col md:flex-row bg-[#202020] p-4 mt-12 rounded-lg w-full max-w-[900px] space-y-6 md:space-y-0 md:space-x-6">
+   {/* Pie Chart Section */}
    <div className="w-full md:w-1/3 flex items-center justify-center">
     {pieChartsData.map((chart, index) => (
      <div key={index} className="relative">
@@ -54,8 +55,10 @@ const FeesCollection: React.FC = () => {
     ))}
    </div>
 
-   <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
+   {/* Data Section */}
+   <div className="w-full md:w-2/3 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
+    {/* Expected */}
+    <div className="bg-[#111111] h-[5rem] mt-0 sm:mt-4 p-3 rounded-md flex justify-between items-center">
      <div>
       <h4 className="text-white text-sm">Expected</h4>
       <p className="text-lg font-semibold" style={{ color: feeData.expected.color }}>
@@ -67,7 +70,8 @@ const FeesCollection: React.FC = () => {
      </span>
     </div>
 
-    <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
+    {/* Collected */}
+    <div className="bg-[#111111] h-[5rem] mt-0 sm:mt-4 p-3 rounded-md flex justify-between items-center">
      <div>
       <h4 className="text-white text-sm">Collected</h4>
       <p className="text-lg font-semibold" style={{ color: feeData.collected.color }}>
@@ -79,7 +83,8 @@ const FeesCollection: React.FC = () => {
      </span>
     </div>
 
-    <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
+    {/* Remaining */}
+    <div className="bg-[#111111] h-[5rem] -mt-0 sm:-mt-4 p-3 rounded-md flex justify-between items-center">
      <div>
       <h4 className="text-white text-sm">Remaining</h4>
       <p className="text-lg font-semibold" style={{ color: feeData.remaining.color }}>
@@ -91,7 +96,8 @@ const FeesCollection: React.FC = () => {
      </span>
     </div>
 
-    <div className="bg-[#111111] p-3 rounded-md flex justify-between items-center">
+    {/* Overdue */}
+    <div className="bg-[#111111] h-[5rem] -mt-0 sm:-mt-4 p-3 rounded-md flex justify-between items-center">
      <div>
       <h4 className="text-white text-sm">Overdue</h4>
       <p className="text-lg font-semibold" style={{ color: feeData.overdue.color }}>

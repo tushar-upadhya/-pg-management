@@ -1,4 +1,4 @@
-import RemoveButton from '@/components/button/RemoveButton';
+import AddButton from '@/components/button/AddButton';
 import Categories from '@/components/categories/Categories';
 import ExpenseMonitor from '@/components/expenseMonitor/ExpenseMonitor';
 import Orders from '@/components/orders/Orders';
@@ -48,8 +48,28 @@ const FurniturePage: React.FC = () => {
      </div>
     </div>
     <div className="mt-4 sm:mt-0 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-     <RemoveButton />
-     <RemoveButton />
+     <AddButton
+      onClick={() => console.log("Button clicked!")}
+      label="+ Add Furniture"
+      bgColor="#00868D"
+      textColor="white"
+      borderColor="#00868D"
+      hoverBgColor="#00866D"
+      hoverTextColor="white"
+      hoverBorderColor="blue-700"
+      showDialog={false}
+     />
+
+     <AddButton
+      onClick={() => console.log("Button clicked!")}
+      label="Report Damage"
+      bgColor="#FF0000"
+      textColor="white"
+      borderColor="#FF0000"
+      hoverBgColor="blue-700"
+      hoverTextColor="white"
+      hoverBorderColor="blue-700"
+      showDialog={false} />
     </div>
    </div>
 

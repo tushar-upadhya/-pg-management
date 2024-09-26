@@ -1,5 +1,4 @@
 import AddButton from "@/components/button/AddButton";
-import RemoveButton from "@/components/button/RemoveButton";
 import DefaultersList from "@/components/defaultersList/DefaultersList";
 import Modal from "@/components/Modal/addStudent/Modal";
 import StudentTable from "@/components/studenTable/StudentTable";
@@ -19,9 +18,28 @@ const StudentPage: React.FC = () => {
      <StudentState />
     </div>
     <div className="p-4 md:p-8 w-full md:w-1/3 lg:w-1/5 flex flex-col">
-     <AddButton onClick={openModal} />
+     <AddButton onClick={openModal}
+      label="+ Add Students"
+      bgColor=""
+      textColor="#00FFF5"
+      borderColor="#00FFF5"
+      hoverBgColor=""
+      hoverTextColor="#00FFF6"
+      hoverBorderColor="#00FFF6"
+      showDialog={false}
+     />
      <div className="mt-2 md:mt-8">
-      <RemoveButton />
+      <AddButton
+       onClick={() => console.log("Button clicked!")}
+       label="- Remove Student"
+       bgColor=""
+       textColor="#FF2A2A"
+       borderColor="#FF2A2A"
+       hoverBgColor=""
+       hoverTextColor="FF2A2A"
+       hoverBorderColor="FF2A2A"
+       showDialog={false}
+      />
      </div>
     </div>
    </div>
