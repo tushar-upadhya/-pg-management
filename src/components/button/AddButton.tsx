@@ -66,7 +66,7 @@ const AddButton: React.FC<AddButtonProps> = ({
     {label}
    </Button>
 
-   {showDialog && isDialogOpen && (
+   {showDialog && isDialogOpen && dialog && (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
      <div className="p-6 rounded-lg shadow-lg max-w-xs sm:max-w-sm md:max-w-md w-full">
       {React.cloneElement(dialog, { onClose: closeDialog })}
