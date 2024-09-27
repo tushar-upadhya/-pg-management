@@ -8,7 +8,7 @@ const StudentState: React.FC = () => {
   { title: "Outside Hostel", value: 2500, color: "text-white" },
   { title: "Fees Defaulters", value: 150, color: "text-[#FFE605]", isButton: true },
   { title: "Students Assigned", value: 2569, color: "text-[#FF05C8]" },
-  { title: "Students Removed", value: 1000, color: "text-[#FF0000]" }, // Assuming red for "Students Removed"
+  { title: "Students Removed", value: 1000, color: "text-[#FF0000]" },
  ];
 
  return (
@@ -26,7 +26,6 @@ const StudentState: React.FC = () => {
       {item.value}
      </div>
 
-     {/* Button for "Fees Defaulters" */}
      {item.isButton && (
       <button className="mt-2 bg-gray-700 text-white py-2 px-4 rounded-md w-full">
        View List

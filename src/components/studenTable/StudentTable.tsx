@@ -50,8 +50,8 @@ const StudentTable: React.FC = () => {
           {/* <span className="text-gray-400 text-sm">{student.email}</span> */}
          </div>
         </div>
-        <Button variant="outline" className="p-2">
-         <Eye className="w-4 h-4" />
+        <Button className="p-6 bg-inherit">
+         <Eye className="w-4 h-4 bg-inherit" />
         </Button>
        </Card>
       ))}

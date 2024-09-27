@@ -1,6 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { ScrollArea } from '@radix-ui/themes';
 import React, { useState } from "react";
+import AddDefaultersListModal from '../Modal/addDefaultersList/AddDefaultersListModal';
+import AddButton from '../button/AddButton';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { Input } from '../ui/input';
@@ -42,49 +44,37 @@ const defaultersList: Defaulter[] = [
   fine: "₹500",
   date: "20 Sep 2022",
  },
- {
-  name: "Abhinav Srivastva",
-  avatar: "https://via.placeholder.com/40",
-  issue: "Broke 4 Test Tubes in Hostel Mess",
-  fine: "₹1,500",
-  date: "12 Nov 2022",
- },
- {
-  name: "Rohit Sharma",
-  avatar: "https://via.placeholder.com/40",
-  issue: "Lost a library book",
-  fine: "₹500",
-  date: "20 Sep 2022",
- },
- {
-  name: "Abhinav Srivastva",
-  avatar: "https://via.placeholder.com/40",
-  issue: "Broke 4 Test Tubes in Hostel Mess",
-  fine: "₹1,500",
-  date: "12 Nov 2022",
- },
- {
-  name: "Rohit Sharma",
-  avatar: "https://via.placeholder.com/40",
-  issue: "Lost a library book",
-  fine: "₹500",
-  date: "20 Sep 2022",
- },
 ];
 
 const DefaultersList: React.FC = () => {
  const [searchTerm, setSearchTerm] = useState<string>("");
+ const [isDialogOpen, setIsDialogOpen] = useState(false);
 
  const filteredDefaulters = defaultersList.filter(defaulter =>
   defaulter.name.toLowerCase().includes(searchTerm.toLowerCase())
  );
 
  return (
-  <div className="p-4 md:p-6 rounded-md text-white">
+  <div className="p-4 sm:h-[36rem] rounded-md bg-[#2E2E2E] text-white">
    {/* Header */}
-   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 space-y-4 sm:space-y-0">
+   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center sm:space-y-0">
     <h2 className="text-lg font-semibold">Defaulters Students</h2>
-    <Button className="bg-[#1FCFF1] hover:bg-[#17bcd7] text-white w-full sm:w-auto">+Add</Button>
+    <div>
+     <AddButton
+      onClick={() => setIsDialogOpen(true)}
+      label="+ Add"
+      bgColor="#00FFF5"
+      textColor="white"
+      borderColor="#00FFF5"
+      hoverBgColor="#00866D"
+      hoverTextColor="white"
+      hoverBorderColor="#00FFF5"
+      showDialog={true}
+      dialog={
+       <AddDefaultersListModal isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+      }
+     />
+    </div>
    </div>
 
    {/* Search Bar */}
@@ -137,13 +127,13 @@ const DefaultersList: React.FC = () => {
        <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-2 mt-4">
         <Button
          variant="outline"
-         className="w-full sm:w-[50%] text-red-400 font-semibold bg-inherit border-red-400 hover:bg-red-300 hover:text-white mb-2 sm:mb-0"
+         className="w-full sm:w-[45%] text-red-400 font-semibold bg-inherit border-red-400 hover:bg-red-300 hover:text-white mb-2 sm:mb-0"
         >
          Remove Defaulter
         </Button>
         <Button
          variant="outline"
-         className="w-full sm:w-[50%] border-cyan-400 font-semibold bg-inherit text-cyan-400 hover:bg-cyan-500 hover:text-white"
+         className="w-full sm:w-[45%] border-cyan-400 font-semibold bg-inherit text-cyan-400 hover:bg-cyan-500 hover:text-white"
         >
          Send Payment Link
         </Button>

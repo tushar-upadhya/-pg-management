@@ -13,9 +13,7 @@ const StudentPage: React.FC = () => {
 
  return (
   <div className="grid grid-cols-1 gap-6 p-4 md:p-6">
-   {/* Main Student State and Action Buttons */}
    <div className="flex flex-col md:flex-row justify-between items-start space-y-6 md:space-y-0">
-    {/* StudentState Component */}
     <div className="w-full md:w-2/3 lg:w-9/12">
      <StudentState />
     </div>
@@ -63,11 +61,9 @@ const StudentPage: React.FC = () => {
    {/* Hidden Student Update Section */}
    <div className="hidden md:flex justify-end">
     <div className="w-full max-w-xs">
-     {/* StudentUpdateComponent could be placed here */}
     </div>
    </div>
 
-   {/* Modal for Adding Students */}
    <Modal isOpen={isModalOpen} onClose={closeModal} />
   </div>
  );
