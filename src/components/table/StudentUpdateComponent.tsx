@@ -7,17 +7,16 @@ interface StudentUpdate {
  name: string;
  avatar: string;
  time: string;
- icon: string;
+ icon: string; // This can be dynamic if needed
 }
 
 const initialUpdates: StudentUpdate[] = [
  { name: 'Ramakant Sharma', avatar: 'https://via.placeholder.com/40', time: '12:30', icon: '📝' },
- { name: 'Ramakant Sharma', avatar: 'https://via.placeholder.com/40', time: '12:30', icon: '📝' },
- { name: 'Ramakant Sharma', avatar: 'https://via.placeholder.com/40', time: '12:30', icon: '📝' },
- { name: 'Ramakant Sharma', avatar: 'https://via.placeholder.com/40', time: '12:30', icon: '📝' },
- { name: 'Ramakant Sharma', avatar: 'https://via.placeholder.com/40', time: '12:30', icon: '📝' },
- { name: 'Ramakant Sharma', avatar: 'https://via.placeholder.com/40', time: '12:30', icon: '📝' },
- { name: 'Ramakant Sharma', avatar: 'https://via.placeholder.com/40', time: '12:30', icon: '📝' },
+ { name: 'Sita Kumari', avatar: 'https://via.placeholder.com/40', time: '14:15', icon: '📊' },
+ { name: 'Ajay Singh', avatar: 'https://via.placeholder.com/40', time: '09:00', icon: '📅' },
+ { name: 'Priya Rani', avatar: 'https://via.placeholder.com/40', time: '16:45', icon: '💡' },
+ { name: 'Rahul Verma', avatar: 'https://via.placeholder.com/40', time: '11:00', icon: '📖' },
+ { name: 'Anita Mehta', avatar: 'https://via.placeholder.com/40', time: '13:30', icon: '✅' },
 ];
 
 const StudentUpdateComponent: React.FC = () => {
@@ -48,7 +47,7 @@ const StudentUpdateComponent: React.FC = () => {
           <h4 className="font-semibold">{update.name}</h4>
           <div className="flex justify-between">
            <p className="text-green-400 text-sm">{update.time}</p>
-           <p className="text-red-400 text-sm">{update.time}</p>
+           <p className="text-red-400 text-sm">{update.icon}</p> {/* Display icon dynamically */}
           </div>
          </div>
         </div>

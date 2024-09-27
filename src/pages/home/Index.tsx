@@ -58,7 +58,7 @@ const HomePage = () => {
  return (
   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-4 md:p-6 text-white">
    {/* Chart Section */}
-   <div className="lg:col-span-2 grid h-[60rem] sm:h-[20rem] bg-[#202020] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-6 rounded-lg">
+   <div className="lg:col-span-2 grid bg-[#202020] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-6 rounded-lg">
     {pieChartsData.map((chart, index) => (
      <div key={index} className="p-2 bg-[#111111] shadow-none rounded-lg flex flex-col">
       <PieChart
@@ -73,7 +73,6 @@ const HomePage = () => {
    {/* Student Updates and Emergency Section */}
    <div className="lg:col-span-1 space-y-5">
     <div className="p-4 rounded-lg h-[28rem] -mt-4 sm:-mt-4">
-     {/* <h2 className="text-xl font-semibold mb-4">Student Update</h2> */}
      <ScrollArea type="always" scrollbars="vertical" className="h-[27rem]">
       <StudentUpdateComponent />
      </ScrollArea>

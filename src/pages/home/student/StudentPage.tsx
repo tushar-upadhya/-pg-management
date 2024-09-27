@@ -12,13 +12,18 @@ const StudentPage: React.FC = () => {
  const closeModal = () => setIsModalOpen(false);
 
  return (
-  <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 p-4 md:p-6">
-   <div className="flex flex-col md:flex-row justify-start items-start">
-    <div className="bg-[#2E2E2E] w-full md:w-3/5 lg:w-9/12 -mt-64">
+  <div className="grid grid-cols-1 gap-6 p-4 md:p-6">
+   {/* Main Student State and Action Buttons */}
+   <div className="flex flex-col md:flex-row justify-between items-start space-y-6 md:space-y-0">
+    {/* StudentState Component */}
+    <div className="w-full md:w-2/3 lg:w-9/12">
      <StudentState />
     </div>
-    <div className="p-4 md:p-8 w-full md:w-1/3 lg:w-1/5 flex flex-col">
-     <AddButton onClick={openModal}
+
+    {/* Add and Remove Buttons */}
+    <div className="w-full md:w-1/3 lg:w-1/5 space-y-4">
+     <AddButton
+      onClick={openModal}
       label="+ Add Students"
       bgColor=""
       textColor="#00FFF5"
@@ -28,37 +33,41 @@ const StudentPage: React.FC = () => {
       hoverBorderColor="#00FFF6"
       showDialog={false}
      />
-
-     <div className="mt-2 md:mt-8">
-      <AddButton
-       onClick={() => console.log("Button clicked!")}
-       label="- Remove Student"
-       bgColor=""
-       textColor="#FF2A2A"
-       borderColor="#FF2A2A"
-       hoverBgColor=""
-       hoverTextColor="FF2A2A"
-       hoverBorderColor="FF2A2A"
-       showDialog={false}
-      />
-     </div>
+     <AddButton
+      onClick={() => console.log("Button clicked!")}
+      label="- Remove Student"
+      bgColor=""
+      textColor="#FF2A2A"
+      borderColor="#FF2A2A"
+      hoverBgColor=""
+      hoverTextColor="#FF2A2A"
+      hoverBorderColor="#FF2A2A"
+      showDialog={false}
+     />
     </div>
    </div>
-   <div className="flex flex-col text-wrap text-sm md:flex-row gap-4 justify-start items-start">
-    <div className="w-full p-2 md:w-3/5 lg:w-[37%]">
+
+   {/* StudentTable and DefaultersList Section */}
+   <div className="flex flex-col md:flex-row gap-4 justify-between items-start">
+    {/* StudentTable */}
+    <div className="w-full md:w-2/3 lg:w-1/2 p-2">
      <StudentTable />
     </div>
-    <div className="flex flex-col md:flex-row gap-4 w-full md:w-[37%] lg:w-[37%]">
-     <div className="bg-[#2E2E2E] w-full mt-2">
-      <DefaultersList />
-     </div>
+
+    {/* DefaultersList */}
+    <div className="w-full md:w-1/3 lg:w-1/2 p-2">
+     <DefaultersList />
     </div>
    </div>
-   <div className="justify-end -mt-[38.5rem] -mr-4 hidden md:flex">
-    <div className="w-full max-w-xs ">
-     {/* <StudentUpdateComponent /> */}
+
+   {/* Hidden Student Update Section */}
+   <div className="hidden md:flex justify-end">
+    <div className="w-full max-w-xs">
+     {/* StudentUpdateComponent could be placed here */}
     </div>
    </div>
+
+   {/* Modal for Adding Students */}
    <Modal isOpen={isModalOpen} onClose={closeModal} />
   </div>
  );

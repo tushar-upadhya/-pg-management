@@ -4,6 +4,7 @@ import {
  CardHeader,
  CardTitle,
 } from "@/components/ui/card";
+import { Bed, Home, Info, Layers, Users } from "lucide-react";
 import React from "react";
 import FurnitureList from "../furnitureList/FurnitureList";
 import { PieChart } from "../shared/PieChart";
@@ -50,14 +51,15 @@ const HostelDashboard: React.FC<HostelDashboardProps> = ({
     <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
      {/* Cards for Room Info */}
      {[
-      { label: "Total Rooms", value: totalRooms },
-      { label: "Occupied", value: occupiedRooms, isHighlight: true },
-      { label: "Floors", value: floors },
-      { label: "Total Students", value: totalStudents },
-      { label: "In Hostel", value: inHostel, isHighlight: true },
-      { label: "Outside Hostel", value: outsideHostel },
+      { label: "Total Rooms", value: totalRooms, icon: <Home size={20} className="text-[#FF05C8]" /> },
+      { label: "Occupied", value: occupiedRooms, icon: <Users size={20} className="text-[#00FFA3]" />, isHighlight: true },
+      { label: "Floors", value: floors, icon: <Layers size={20} className="text-[#FF1010]" /> },
+      { label: "Total Rooms", value: totalRooms, icon: <Home size={20} className="text-[#FF05C8]" /> },
+      { label: "Occupied", value: occupiedRooms, icon: <Users size={20} className="text-[#00FFA3]" />, isHighlight: true },
+      { label: "Floors", value: floors, icon: <Layers size={20} className="text-[#FF1010]" /> },
      ].map((item, index) => (
-      <div key={index} className="bg-[#141414] p-4 rounded-lg">
+      <div key={index} className="bg-[#141414] flex justify-between p-4 rounded-lg space-x-2 items-center">
+       <div className="flex">{item.icon}</div>
        <p className={`font-bold text-xl ${item.isHighlight ? 'text-yellow-400' : ''}`}>
         {item.value}
        </p>
@@ -69,11 +71,12 @@ const HostelDashboard: React.FC<HostelDashboardProps> = ({
      <div className="col-span-2 md:col-span-3 mt-4 bg-[#141414] p-4 rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
        {[
-        { label: "Total Students", value: totalStudents },
-        { label: "In Hostel", value: inHostel, isHighlight: true },
-        { label: "Outside Hostel", value: outsideHostel },
+        { label: "Total Students", value: totalStudents, icon: <Users size={20} /> },
+        { label: "In Hostel", value: inHostel, icon: <Bed size={20} />, isHighlight: true },
+        { label: "Outside Hostel", value: outsideHostel, icon: <Info size={20} /> },
        ].map((item, index) => (
         <div key={index} className="text-center">
+         {/* <div className="">{item.icon}</div> */}
          <p className={`font-bold text-xl ${item.isHighlight ? 'text-blue-400' : ''}`}>
           {item.value}
          </p>

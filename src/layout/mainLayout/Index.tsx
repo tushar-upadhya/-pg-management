@@ -14,10 +14,10 @@ const MainLayout: React.FC = () => {
  ];
 
  return (
-  <div className="flex flex-col bg-black">
+  <div className="flex flex-col min-h-screen bg-black">
    <Header />
-   <div className="flex flex-1 p-4 md:flex-row md:mt-0">
-    <Sidebar className="-mt-4" menuItems={mainMenuItems} />
+   <div className="flex flex-1 flex-col md:flex-row p-4">
+    <Sidebar className="md:-mt-4" menuItems={mainMenuItems} />
     <main className="flex-1 overflow-hidden">
      <Outlet />
     </main>

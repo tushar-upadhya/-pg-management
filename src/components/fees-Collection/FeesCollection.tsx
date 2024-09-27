@@ -46,11 +46,8 @@ const FeesCollection: React.FC = () => {
    {/* Pie Chart Section */}
    <div className="w-full md:w-1/3 flex items-center justify-center">
     {pieChartsData.map((chart, index) => (
-     <div key={index} className="relative">
-      <PieChart
-       data={data}
-       title={chart.title}
-      />
+     <div key={index} className="relative w-full">
+      <PieChart data={data} title={chart.title} />
      </div>
     ))}
    </div>
@@ -58,7 +55,7 @@ const FeesCollection: React.FC = () => {
    {/* Data Section */}
    <div className="w-full md:w-2/3 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
     {/* Expected */}
-    <div className="bg-[#111111] h-[5rem] mt-0 sm:mt-4 p-3 rounded-md flex justify-between items-center">
+    <div className="bg-[#111111] h-[5rem] p-3 rounded-md flex justify-between items-center transition-all duration-300 ease-in-out hover:bg-[#1a1a1a]">
      <div>
       <h4 className="text-white text-sm">Expected</h4>
       <p className="text-lg font-semibold" style={{ color: feeData.expected.color }}>
@@ -71,7 +68,7 @@ const FeesCollection: React.FC = () => {
     </div>
 
     {/* Collected */}
-    <div className="bg-[#111111] h-[5rem] mt-0 sm:mt-4 p-3 rounded-md flex justify-between items-center">
+    <div className="bg-[#111111] h-[5rem] p-3 rounded-md flex justify-between items-center transition-all duration-300 ease-in-out hover:bg-[#1a1a1a]">
      <div>
       <h4 className="text-white text-sm">Collected</h4>
       <p className="text-lg font-semibold" style={{ color: feeData.collected.color }}>
@@ -84,7 +81,7 @@ const FeesCollection: React.FC = () => {
     </div>
 
     {/* Remaining */}
-    <div className="bg-[#111111] h-[5rem] -mt-0 sm:-mt-4 p-3 rounded-md flex justify-between items-center">
+    <div className="bg-[#111111] h-[5rem] p-3 rounded-md flex justify-between items-center transition-all duration-300 ease-in-out hover:bg-[#1a1a1a]">
      <div>
       <h4 className="text-white text-sm">Remaining</h4>
       <p className="text-lg font-semibold" style={{ color: feeData.remaining.color }}>
@@ -97,7 +94,7 @@ const FeesCollection: React.FC = () => {
     </div>
 
     {/* Overdue */}
-    <div className="bg-[#111111] h-[5rem] -mt-0 sm:-mt-4 p-3 rounded-md flex justify-between items-center">
+    <div className="bg-[#111111] h-[5rem] p-3 rounded-md flex justify-between items-center transition-all duration-300 ease-in-out hover:bg-[#1a1a1a]">
      <div>
       <h4 className="text-white text-sm">Overdue</h4>
       <p className="text-lg font-semibold" style={{ color: feeData.overdue.color }}>
