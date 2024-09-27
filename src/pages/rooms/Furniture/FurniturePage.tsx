@@ -1,9 +1,9 @@
-import AddButton from '@/components/button/AddButton';
 import Categories from '@/components/categories/Categories';
 import ExpenseMonitor from '@/components/expenseMonitor/ExpenseMonitor';
 import AddFunitureDialog from '@/components/Modal/addFuniture/AddFunitureDialog';
 import ReportDamageDialog from '@/components/Modal/reportDamage/ReportDamageDialog';
 import Orders from '@/components/orders/Orders';
+import AddButton from '@/components/shared/button/AddButton';
 import { Input } from '@/components/ui/input';
 import OverviewCards from '@/components/vverviewCards/OverviewCards';
 import { Search } from 'lucide-react';

@@ -1,4 +1,4 @@
-import LiveStudentUpdate from "@/components/liveStudentUpdate/LiveStudentUpdate";
+import LiveStudentUpdate from "@/components/attendance/liveStudentUpdate/LiveStudentUpdate";
 import React from "react";
 
 const data = [

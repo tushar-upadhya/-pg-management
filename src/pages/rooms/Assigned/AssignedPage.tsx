@@ -1,4 +1,4 @@
-import RoomGrid from '@/components/roomGrid/RoomGrid';
+import RoomGrid from '@/components/room/roomGrid/RoomGrid';
 import React from 'react';
 
 interface Room {

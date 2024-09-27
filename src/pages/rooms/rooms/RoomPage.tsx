@@ -1,7 +1,7 @@
-import AddButton from "@/components/button/AddButton";
-import FurnitureState from "@/components/furniture/FurnitureState";
 import AddRoomDialog from "@/components/Modal/addroom/AddRoomDialog";
-import RoomState from "@/components/roomstate/RoomState";
+import RoomState from "@/components/room/roomstate/RoomState";
+import AddButton from "@/components/shared/button/AddButton";
+import FurnitureState from "@/components/shared/furniture/FurnitureState";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import React, { useState } from "react";

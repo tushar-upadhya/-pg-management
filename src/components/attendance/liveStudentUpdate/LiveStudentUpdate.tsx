@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bed, Building2, User, Watch } from "lucide-react";
 import { FC } from "react";
-import BlinkingDot from "../blinkingDot/BlinkingDot";
+import BlinkingDot from "../../blinkingDot/BlinkingDot";
 
 interface Student {
  name: string;

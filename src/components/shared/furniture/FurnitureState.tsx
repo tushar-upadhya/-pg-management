@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
  Card,
  CardContent,
@@ -7,8 +8,7 @@ import {
 import { ChartNoAxesCombined } from "lucide-react";
 import React from "react";
 import { Label, Pie, PieChart } from "recharts";
-import FurnitureList from "../furnitureList/FurnitureList";
-import { Button } from "../ui/button";
+import FurnitureList from "./furnitureList/FurnitureList";
 
 interface FurnitureStateProps {
  title: string;

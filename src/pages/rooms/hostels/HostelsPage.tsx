@@ -1,6 +1,6 @@
-import AddButton from "@/components/button/AddButton";
-import ChartWithTables from "@/components/ChartWithTables/chartWithTables";
 import AddHostelDialog from "@/components/Modal/addHostelDialog/AddHostelDialog";
+import AddButton from "@/components/shared/button/AddButton";
+import ChartWithTables from "@/components/shared/ChartWithTables/chartWithTables";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { useState } from "react";

@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { ScrollArea } from '@radix-ui/themes';
 import { ExternalLink, Eye } from "lucide-react";
 import React, { useState } from "react";
-import StudentListDialog from "../Modal/StudentListDialog/StudentListDialog";
+import StudentListDialog from "../../Modal/StudentListDialog/StudentListDialog";
 
 const StudentTable: React.FC = () => {
  const [dialogOpen, setDialogOpen] = useState(false);

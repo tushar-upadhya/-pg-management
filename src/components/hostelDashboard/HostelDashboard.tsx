@@ -6,8 +6,8 @@ import {
 } from "@/components/ui/card";
 import { Bed, Home, Info, Layers, Users } from "lucide-react";
 import React from "react";
-import FurnitureList from "../furnitureList/FurnitureList";
 import { PieChart } from "../shared/PieChart";
+import FurnitureList from "../shared/furniture/furnitureList/FurnitureList";
 
 interface HostelDashboardProps {
  title: string;

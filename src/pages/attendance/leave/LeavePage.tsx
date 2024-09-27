@@ -1,6 +1,6 @@
-import AddButton from "@/components/button/AddButton";
 import FeesCollection from "@/components/fees-Collection/FeesCollection";
 import LeaveDailog from "@/components/Modal/leaveDailog/LeaveDailog";
+import AddButton from "@/components/shared/button/AddButton";
 import StudentsOnLeave from "@/components/studentsOnLeave/StudentsOnLeave";
 import { useState } from "react";
 

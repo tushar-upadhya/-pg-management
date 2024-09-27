@@ -4,11 +4,37 @@
 
 @layer base {
   :root {
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
-  html, body, #root {
+
+  html,
+  body,
+  #root {
     height: 100vh;
     background: black;
-  }  
+  }
 
+  /* Scale-up animation */
+  .scale-up-hor-right {
+    @apply animate-scale-up-hor-right;
+  }
+}
+
+@keyframes scale-up-hor-right {
+  0% {
+    transform: scaleX(0.4);
+    transform-origin: 100% 100%;
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+  }
+}
+
+/* Tailwind animation utility */
+@layer utilities {
+  .animate-scale-up-hor-right {
+    animation: scale-up-hor-right 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
 }

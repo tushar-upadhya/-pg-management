@@ -6,8 +6,8 @@ import {
 } from "@/components/ui/card";
 import React from "react";
 import { Label, Pie, PieChart } from "recharts";
-import FurnitureList from "../furnitureList/FurnitureList";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
+import FurnitureList from "../furniture/furnitureList/FurnitureList";
 
 interface HostelDashboardProps {
  title: string;

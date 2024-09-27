@@ -1,8 +1,8 @@
-import AddButton from "@/components/button/AddButton";
 import DefaultersList from "@/components/defaultersList/DefaultersList";
 import Modal from "@/components/Modal/addStudent/Modal";
-import StudentTable from "@/components/studenTable/StudentTable";
-import StudentState from "@/components/studentState/StudentState";
+import AddButton from "@/components/shared/button/AddButton";
+import StudentTable from "@/components/shared/studenTable/StudentTable";
+import StudentState from "@/components/shared/studentState/StudentState";
 import React, { useState } from "react";
 
 const StudentPage: React.FC = () => {

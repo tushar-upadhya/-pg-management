@@ -1,4 +1,4 @@
-import LiveStudentUpdate from "@/components/liveStudentUpdate/LiveStudentUpdate";
+import LiveStudentUpdate from "@/components/attendance/liveStudentUpdate/LiveStudentUpdate";
 
 const data = [
  { name: "Ramakant Sharma", status: "3", time: "12:30", room: "101", hostel: "H1" },

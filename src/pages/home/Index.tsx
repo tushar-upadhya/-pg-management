@@ -1,6 +1,6 @@
-import Complaint from "@/components/Complaint/Complaint";
 import EmergencyButton from "@/components/EmergencyButton/EmergencyButton";
 import FeesCollection from "@/components/fees-Collection/FeesCollection";
+import Complaint from "@/components/home/Complaint/Complaint";
 import StudentUpdateComponent from "@/components/table/StudentUpdateComponent";
 import { ScrollArea } from "@radix-ui/themes";
 import { ExternalLink } from "lucide-react";

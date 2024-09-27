@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { ScrollArea } from '@radix-ui/themes';
 import React, { useState } from "react";
 import AddDefaultersListModal from '../Modal/addDefaultersList/AddDefaultersListModal';
-import AddButton from '../button/AddButton';
+import AddButton from '../shared/button/AddButton';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { Input } from '../ui/input';
